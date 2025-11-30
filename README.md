@@ -21,7 +21,7 @@ Since we only observe students above a threshold, we're dealing with **truncated
 ---
 
 ## Table of Contents
-0. [On the Weight of a Number](#0-prologue)
+0. [On the Weight of a Number](#0-on-the-weight-of-a-number)
 1. [The Truncation Problem](#1-the-truncation-problem)
 2. [Mathematical Framework](#2-mathematical-framework)
 3. [MLE Implementation](#3-mle-implementation)
@@ -34,9 +34,9 @@ Since we only observe students above a threshold, we're dealing with **truncated
 ---
 
 
-# Prologue. On the Weight of a Number
+## 0. On the Weight of a Number
 
-## On Fairness, Equity, and the Impossible Choices of Selective Enrollment
+### On Fairness, Equity, and the Impossible Choices of Selective Enrollment
 
 ---
 
