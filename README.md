@@ -789,7 +789,17 @@ This is *not* a Bayesian posterior probability (which would incorporate paramete
 
 <img width="1380" height="780" alt="output1" src="https://github.com/user-attachments/assets/83caa7b8-ceca-47f5-a7ab-9e4ee0c1a6fe" />
 
-A Tier 1 student can gain admission to Lane Tech with a score 147 points below the Tier 4 threshold. This is the policy working as designed, yet the magnitude is striking. For top-performing students, the drop of a letter grade from an A (112.5 points) to a B (75 points) is 37.5 points. This implies that for some schools, a tier 1 student with all B's (or mostly A's and a C) might have *better* prospective chances than a tier 4 student with all A's. This effect is not present as strongly across all schools, and raises questions about how effective, lentiant, and equitable the current CPS match program is. This test subjects children to the kind of stress typically reserved for young adults.
+A Tier 1 student can gain admission to Lane Tech with a score 147 points below the Tier 4 threshold. At Northside, the gap widens to 186.5 points. At Payton, it is 102 points. This is the policy working as designed. But the magnitude deserves attention.
+
+The scoring rubric assigns 112.5 points to an A and 75 points to a B. The difference is 37.5 points. A 147-point gap is equivalent to nearly four letter grades. Put concretely: a Tier 1 student with a B average in their core classes can outscore, for admissions purposes, a Tier 4 student with straight A's.
+This is not hypothetical. A Tier 1 student with four B's earns 300 points from grades. Add a strong but not exceptional test performance, say 85th percentile in both sections (around 386 points), and they reach 686. That clears Lane Tech's Tier 1 cutoff of 712 with room to spare if their test is slightly better, or falls just short if they need to make it up elsewhere. Meanwhile, a Tier 4 student with perfect grades (450 points) needs a 409 on the test just to hit 859. That requires roughly the 90th percentile in both sections, and leaves zero margin for error.
+
+The tier system does not merely adjust for circumstance. At this magnitude, it constitutes a fundamentally different admissions standard. Whether this is appropriate depends on what you believe the policy is trying to achieve. If the goal is proportional representation across socioeconomic tiers, then large gaps are a feature, not a bug. If the goal is to identify the highest-performing students with a modest adjustment for context, then a four-letter-grade equivalence may overshoot.
+
+The effect varies by school. At Hancock, the Tier 1 to Tier 4 gap is only 27 points, less than one letter grade. At Northside, it approaches five. Families navigating this system need to understand that the tier advantage is not uniform. It is largest at precisely the schools where Tier 4 competition is most brutal, and smallest at schools where competition is already more diffuse.
+
+One way to interpret this: the tier system provides the greatest lift where it is most needed. Without a 186-point adjustment, virtually no Tier 1 students would attend Northside; the Tier 4 applicant pool is simply too strong. Another interpretation: a policy that requires a 186-point handicap to achieve integration might be revealing the limits of what test-based selection can accomplish in a deeply unequal city.
+Both interpretations can be true at once.
 
 
 ### Finding 2: Published Averages Overstate Competitiveness by 100-300 Points
@@ -800,7 +810,11 @@ A Tier 1 student can gain admission to Lane Tech with a score 147 points below t
 | Whitney Young | 846.0 | 548.4 | **+297.6 pts** |
 | Jones | 815.7 | 605.6 | **+210.1 pts** |
 
-The truncated statistics create a systematic illusion of extreme competitiveness.
+A Tier 1 parent looking at Lane Tech's published average of 758 might reasonably conclude that their child, who scored 680, is nearly 80 points below the typical admitted student and has no realistic chance. But our MLE recovery suggests the true mean of the Tier 1 applicant pool is closer to 545. That same 680 score is actually 135 points above the typical applicant. This student is not below average; they are well into the upper tail of the distribution.The selection bias is largest precisely where it is most harmful. 
+
+At elite schools for Tier 1 students, the gap between published average and true population mean exceeds 200 points. These are the students the tier system was designed to help, and these are the students most likely to be discouraged by statistics that dramatically misrepresent their competitive position.Consider the decision calculus of a Tier 1 family without access to this analysis. They see published averages in the 800s. They see their child's score in the low 700s. They conclude, not unreasonably, that the elite schools are out of reach. They rank only regional schools, or they don't apply at all. The information asymmetry becomes a self-fulfilling prophecy: students who would have been admitted never apply, because no one told them they had a chance.For Tier 4 students, the selection bias is much smaller, often 30-50 points. The published averages are not lying to them in the same way. 
+
+This creates a perverse asymmetry: the students with the most resources to interpret data correctly are also the students receiving the least distorted data.
 
 <img width="1580" height="714" alt="output3" src="https://github.com/user-attachments/assets/1f05869b-cc11-43f5-a5d4-1acd6c4fbf57" />
 
@@ -810,9 +824,18 @@ The truncated statistics create a systematic illusion of extreme competitiveness
 
 **Regional Schools:** T4 $\hat{\mu}$ = 590-690, $\hat{\sigma}$ = 60-96
 
-The 200+ point gap in population means reflects fundamental bifurcation in Chicago's educational landscape.
+The standard deviation tells a story that the mean alone cannot. At Northside, the recovered Tier 4 σ is 3.4 points. This is not a typo. Virtually every Tier 4 applicant to Northside scores between 890 and 900. The entire competition unfolds within a 10-point window. A single careless error on the exam, a single B+ instead of an A, can be the difference between admission and rejection. At South Shore, the Tier 4 σ is 88 points. The applicant pool spans from the 500s to the 700s. There is room to breathe. A student 50 points below the mean still has a realistic path to admission.
+These are not variations within a single system. They are fundamentally different admissions regimes wearing the same label. The preparation strategies are different. The margin for error is different. The psychological experience of applying is different. A 200+ point gap in population means reflects fundamental bifurcation in Chicago's educational landscape.
 
 <img width="1380" height="780" alt="output4" src="https://github.com/user-attachments/assets/84b22301-50e2-460d-ae3d-7e07e9270dcd" />
+
+For families, this bifurcation matters enormously but is rarely articulated. A parent might think "selective enrollment" describes a uniform level of competition. It does not. Advising a student applying to Payton requires completely different guidance than advising a student applying to King. The stakes, the odds, and the viable strategies have almost nothing in common.
+
+The policy implications are also worth considering. If the elite schools operate in a regime where Tier 4 competition is essentially a coin flip among near-perfect students, does the tier system still serve its equity function there? Or has the concentration of high-scoring Tier 4 applicants overwhelmed the policy's ability to create meaningful access?
+
+Compare this to the wide distributions of the regional schools:
+
+<img width="1580" height="580" alt="download5" src="https://github.com/user-attachments/assets/5deea892-b4d5-4e59-9a22-e440e2c78deb" />
 
 ### Finding 4: Regional Schools Show Inverted Tier Patterns
 
@@ -820,9 +843,18 @@ At elite schools: T4 cutoff > T3 > T2 > T1 (expected)
 
 At some regional schools (e.g., South Shore): **T4 cutoff < T1 cutoff**
 
-This inversion occurs because high-scoring T1 students from the South Side *prefer elite schools*, while high-scoring T4 students are geographically constrained to regional options.
+The inverted tier pattern at South Shore and similar schools reveals something important about how students and families actually behave within this system.
 
-<img width="1580" height="580" alt="download5" src="https://github.com/user-attachments/assets/5deea892-b4d5-4e59-9a22-e440e2c78deb" />
+A high-scoring Tier 1 student from the South Side faces a choice. They can apply to South Shore, where they would be virtually guaranteed admission. Or they can reach for Payton, Jones, or Lane Tech, where the Tier 1 cutoffs are far more favorable than the Tier 4 cutoffs. Rationally, many of them reach. If they succeed, they take an elite school seat. If they fail, they may end up at their neighborhood school rather than South Shore, because they ranked the elite schools higher.
+
+A high-scoring Tier 4 student from the South Side, by contrast, is rare to begin with. Most Tier 4 census tracts are on the North Side. The few Tier 4 families who live near South Shore are often not the ones producing 850+ scores. And even when they are, those families frequently prefer North Side options or selective schools closer to downtown.
+The result is a sorting equilibrium that the policy designers may not have anticipated. South Shore's Tier 1 applicant pool is drained of its highest performers, who are competing for elite seats. Its Tier 4 applicant pool was never large or high-scoring to begin with. So the Tier 4 cutoff drops below the Tier 1 cutoff, and the tier advantage inverts.
+
+This is not a failure of the policy so much as an emergent consequence of rational behavior within it. But it does complicate the narrative that lower tiers always face easier paths to admission. At regional schools, geography and preferences interact with tier in ways that produce counterintuitive outcomes. A Tier 4 student on the South Side may actually have an easier path to South Shore than a Tier 1 student, precisely because so few Tier 4 students are competing for those seats.
+
+<img width="1380" height="1078" alt="output5" src="https://github.com/user-attachments/assets/d800bc5a-d22a-4afd-909d-07cce47bbfbe" />
+
+
 
 
 ---
