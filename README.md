@@ -306,4 +306,16 @@ An MLE Approach. https://github.com/homo-morphism/CPS_Match
 
 ## License
 
-MIT License
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
+
+Copyright (c) 2025 Andrew Hood
+
+You are free to:
+  - Share: Copy and redistribute the material in any medium or format
+
+Under the following terms:
+  - Attribution: You must give appropriate credit and indicate if changes were made.
+  - NonCommercial: You may not use the material for commercial purposes.
+  - NoDerivatives: You may not distribute modified versions of this material.
+
+Full license text: https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
