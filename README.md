@@ -26,7 +26,7 @@ Since we only observe students above a threshold, we're dealing with **truncated
 2. [Mathematical Framework](#2-mathematical-framework)
 3. [MLE Implementation](#3-mle-implementation)
 4. [Key Results](#4-key-results)
-5. [Physics-Based Simulation](#5-physics-based-simulation)
+5. [Monte Carlo Simulation: Statistical Formulation](#5-monte-carlo-simulation-statistical-formulation)
 6. [Key Findings](#6-key-findings)
 7. [Repository Structure](#7-repository-structure)
 
@@ -63,82 +63,213 @@ This creates a systematic upward bias. A parent seeing "average: 876 at Payton" 
 
 ## 2. Mathematical Framework
 
+### Probability Space
+
+We work on a probability space $(\Omega, \mathcal{F}, P)$ where:
+
+- **$\Omega$** (sample space): The set of all possible realizations of applicant scores for a given school-tier combination
+- **$\mathcal{F}$** (σ-algebra): The Borel σ-algebra $\mathcal{B}(\mathbb{R})$, ensuring all intervals and their complements are measurable
+- **$P$** (probability measure): The measure induced by the normal distribution with parameters $(\mu, \sigma)$
+
+### Random Variables: Formal Definitions
+
+Let $X$ denote the composite score of a randomly selected applicant. Formally:
+
+$$X: \Omega \to \mathbb{R}$$
+
+is a measurable function from the sample space to the real line. We assume $X$ follows a normal distribution:
+
+$$X \sim \mathcal{N}(\mu, \sigma^2)$$
+
+where:
+- **$\mu \in \mathbb{R}$** (population mean): The expected value $\mathbb{E}[X]$, representing the "center" of the applicant score distribution
+- **$\sigma \in \mathbb{R}_{>0}$** (population standard deviation): The square root of variance, $\sqrt{\text{Var}(X)}$, measuring dispersion
+
+The probability density function (PDF) is:
+
+$$f_X(x; \mu, \sigma) = \frac{1}{\sigma\sqrt{2\pi}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)$$
+
+and the cumulative distribution function (CDF) is:
+
+$$F_X(x; \mu, \sigma) = P(X \leq x) = \Phi\left(\frac{x - \mu}{\sigma}\right)$$
+
+where $\Phi(\cdot)$ denotes the standard normal CDF.
+
 ### Truncated Normal Distribution
 
-Let $X \sim \mathcal{N}(\mu, \sigma^2)$ represent applicant scores. CPS admits students with $X \geq c$ (the cutoff). The conditional expectation of this truncated distribution is:
+CPS admits students with scores at or above a cutoff $c$. This creates a **truncated random variable**:
+
+$$X^* = (X \mid X \geq c)$$
+
+Formally, $X^*$ is a random variable with support $[c, \infty)$ (or $[c, M]$ where $M = 900$ is the maximum possible score) whose distribution is derived from conditioning $X$ on the event $\{X \geq c\}$.
+
+**Truncated PDF:** For $x \in [c, M]$:
+
+$$f_{X^*}(x; \mu, \sigma, c, M) = \frac{f_X(x; \mu, \sigma)}{P(c \leq X \leq M)} = \frac{\phi\left(\frac{x-\mu}{\sigma}\right)}{\sigma\left[\Phi\left(\frac{M-\mu}{\sigma}\right) - \Phi\left(\frac{c-\mu}{\sigma}\right)\right]}$$
+
+where $\phi(\cdot)$ is the standard normal PDF.
+
+**Truncated Mean (Conditional Expectation):**
 
 $$\mathbb{E}[X \mid c \leq X \leq M] = \mu + \sigma \cdot \frac{\phi(\alpha) - \phi(\beta)}{\Phi(\beta) - \Phi(\alpha)}$$
 
-where:
-- $\alpha = \frac{c - \mu}{\sigma}$ — standardized lower bound (cutoff in z-score units)
-- $\beta = \frac{M - \mu}{\sigma}$ — standardized upper bound (M = 900)
-- $\phi(\cdot)$ — standard normal PDF
-- $\Phi(\cdot)$ — standard normal CDF
+where we define the **standardized bounds**:
+- $\alpha = \frac{c - \mu}{\sigma}$ — lower bound in standard units (z-score of cutoff)
+- $\beta = \frac{M - \mu}{\sigma}$ — upper bound in standard units (z-score of maximum)
+
+The ratio $\frac{\phi(\alpha) - \phi(\beta)}{\Phi(\beta) - \Phi(\alpha)}$ is known as the **inverse Mills ratio** (generalized to two-sided truncation).
 
 ### The Identification Problem
 
-With one equation and two unknowns $(\mu, \sigma)$, the problem is **underidentified**. There's an infinite "banana valley" of parameter pairs that produce the same truncated mean.
+**Problem:** We observe the truncated mean $\bar{X}_{\text{obs}} = \mathbb{E}[X \mid X \geq c]$ but want to recover $(\mu, \sigma)$.
 
-**Solution:** Add a second constraint—the acceptance rate:
+This single equation relates two unknowns:
 
-$$P(X \geq c) = 1 - \Phi\left(\frac{c - \mu}{\sigma}\right) = r = \frac{\text{seats}}{\text{applicants}}$$
+$$\bar{X}_{\text{obs}} = g(\mu, \sigma; c, M)$$
 
-Two equations, two unknowns → unique solution.
+where $g$ is the truncated mean function. The level set $\{(\mu, \sigma) : g(\mu, \sigma; c, M) = \bar{X}_{\text{obs}}\}$ forms a curve in parameter space—infinitely many solutions exist.
 
-### Selection Bias Demonstration
+**Resolution:** Introduce a second constraint via the **acceptance rate**:
+
+$$r = P(X \geq c) = 1 - \Phi\left(\frac{c - \mu}{\sigma}\right) = \frac{\text{seats}}{\text{applicants}}$$
+
+Now we have two equations in two unknowns:
+
+$$\begin{cases}
+\mathbb{E}[X \mid X \geq c] = \bar{X}_{\text{obs}} \\
+P(X \geq c) = r
+\end{cases}$$
+
+Under mild regularity conditions, this system has a unique solution $(\hat{\mu}, \hat{\sigma})$.
+
+### Selection Bias: A Worked Example
 
 Consider a hypothetical tier with:
 - True population mean: $\mu = 700$
 - True population SD: $\sigma = 80$
 - Cutoff: $c = 800$
 
-The cutoff is 1.25 standard deviations above the mean, admitting ~10% of applicants. But among those admitted:
+First, compute the standardized cutoff:
 
-$$\mathbb{E}[X \mid X \geq 800] = 841.3$$
+$$\alpha = \frac{800 - 700}{80} = 1.25$$
 
-The **selection bias** is +141.3 points—the observed mean exceeds the true mean by over 1.75 standard deviations.
+The acceptance rate is:
+
+$$r = 1 - \Phi(1.25) \approx 1 - 0.894 = 0.106$$
+
+So roughly 10.6% of applicants are admitted. The truncated mean is:
+
+$$\mathbb{E}[X \mid X \geq 800] = 700 + 80 \cdot \frac{\phi(1.25)}{\Phi(-1.25)} = 700 + 80 \cdot \frac{0.183}{0.106} \approx 841.3$$
+
+The **selection bias** is:
+
+$$\text{Bias} = \mathbb{E}[X \mid X \geq c] - \mu = 841.3 - 700 = +141.3 \text{ points}$$
+
+This exceeds 1.75 standard deviations—the observed mean dramatically overstates the true population center.
 
 ---
 
 ## 3. MLE Implementation
 
+### Parameter Space
+
+Define the **feasible parameter space**:
+
+$$\Theta = \{(\mu, \sigma) \in \mathbb{R}^2 : \mu \in [100, 890], \, \sigma \in [5, 200]\}$$
+
+This is a compact, convex subset of $\mathbb{R}^2$. The bounds reflect:
+- $\mu \in [100, 890]$: Mean must be within plausible score range
+- $\sigma \in [5, 200]$: Standard deviation must be positive and bounded (ruling out degenerate or implausibly dispersed distributions)
+
 ### Loss Function
 
-We recover $(\mu, \sigma)$ by minimizing a weighted loss:
+We frame parameter recovery as an optimization problem. Define the **loss function** $\mathcal{L}: \Theta \to \mathbb{R}_{\geq 0}$:
 
-$$\mathcal{L}(\mu, \sigma) = \underbrace{\left(\mathbb{E}[X|X \geq c; \mu, \sigma] - \bar{X}_{\text{obs}}\right)^2}_{\text{Match truncated mean}} + \lambda \underbrace{\left(P(X \geq c; \mu, \sigma) - r\right)^2}_{\text{Match acceptance rate}}$$
+$$\mathcal{L}(\mu, \sigma) = \underbrace{\left(\mathbb{E}[X|X \geq c; \mu, \sigma] - \bar{X}_{\text{obs}}\right)^2}_{\mathcal{L}_1(\mu, \sigma): \text{ truncated mean error}} + \lambda \underbrace{\left(P(X \geq c; \mu, \sigma) - r\right)^2}_{\mathcal{L}_2(\mu, \sigma): \text{ acceptance rate error}}$$
 
-where $\lambda = 100$ balances the constraint scales.
+where:
+- $\bar{X}_{\text{obs}}$ — observed (published) average score of admitted students
+- $r$ — estimated acceptance rate (seats / applicants)
+- $\lambda = 100$ — regularization weight balancing the two constraints
 
-### Core Functions
+**Interpretation:** $\mathcal{L}$ measures the squared discrepancy between model predictions and observed statistics. The weight $\lambda$ accounts for different scales ($\mathcal{L}_1$ is in points², $\mathcal{L}_2$ is in probability²).
+
+### Optimization Problem
+
+The MLE estimator is:
+
+$$(\hat{\mu}, \hat{\sigma}) = \underset{(\mu, \sigma) \in \Theta}{\arg\min} \; \mathcal{L}(\mu, \sigma)$$
+
+This is a **constrained nonlinear least squares** problem. We solve it using the L-BFGS-B algorithm, which handles box constraints efficiently.
+
+### Core Implementation
 
 ```python
+# truncated_mean: computes E[X | lower <= X <= upper] for X ~ N(mu, sigma^2)
+# uses the inverse Mills ratio formula derived above
 def truncated_mean(mu: float, sigma: float, lower: float, upper: float = 900) -> float:
-    """
-    Compute E[X | lower <= X <= upper] for X ~ N(mu, sigma^2).
-
-    Implements: mu + sigma * (phi(alpha) - phi(beta)) / (Phi(beta) - Phi(alpha))
-    """
-    alpha = (lower - mu) / sigma
-    beta = (upper - mu) / sigma
+    alpha = (lower - mu) / sigma  # standardized lower bound
+    beta = (upper - mu) / sigma   # standardized upper bound
+    
+    # denominator: P(lower <= X <= upper), the probability mass in truncation region
     prob_mass = stats.norm.cdf(beta) - stats.norm.cdf(alpha)
-    return mu + sigma * (stats.norm.pdf(alpha) - stats.norm.pdf(beta)) / prob_mass
+    
+    # numerator: difference in PDF values at boundaries
+    pdf_diff = stats.norm.pdf(alpha) - stats.norm.pdf(beta)
+    
+    # inverse Mills ratio adjustment
+    return mu + sigma * (pdf_diff / prob_mass)
 
 
+# acceptance_prob: computes P(X >= cutoff) for X ~ N(mu, sigma^2)
+# this is just the survival function (complementary CDF)
 def acceptance_prob(mu: float, sigma: float, cutoff: float) -> float:
-    """
-    Compute P(X >= cutoff) for X ~ N(mu, sigma^2).
-    """
     return 1 - stats.norm.cdf(cutoff, mu, sigma)
+
+
+# loss_function: the objective we minimize
+# returns squared errors in matching truncated mean and acceptance rate
+def loss_function(params: tuple, cutoff: float, obs_mean: float, 
+                  target_rate: float, lambda_weight: float = 100) -> float:
+    mu, sigma = params
+    
+    # predicted truncated mean under current parameters
+    pred_mean = truncated_mean(mu, sigma, cutoff)
+    
+    # predicted acceptance probability under current parameters
+    pred_rate = acceptance_prob(mu, sigma, cutoff)
+    
+    # weighted sum of squared errors
+    mean_error = (pred_mean - obs_mean) ** 2
+    rate_error = (pred_rate - target_rate) ** 2
+    
+    return mean_error + lambda_weight * rate_error
 ```
 
-### Optimization
+### Initialization Strategy
 
-We use L-BFGS-B with box constraints:
-- $\mu \in [100, 890]$
-- $\sigma \in [5, 200]$
+The loss landscape can have multiple local minima (the "banana valley" problem). We use tier-specific initial guesses based on domain knowledge:
 
-Initial guesses are tier-specific (lower $\mu$ for Tier 1, higher for Tier 4).
+| Tier | Initial $\mu_0$ | Initial $\sigma_0$ | Rationale |
+|------|-----------------|-------------------|-----------|
+| Tier 1 | 500 | 120 | Lower SES → lower expected scores, high variance |
+| Tier 2 | 580 | 110 | Moderate scores |
+| Tier 3 | 660 | 100 | Above-average scores |
+| Tier 4 | 740 | 90 | Highest scores, tighter distribution |
+
+### Convergence and Identifiability
+
+The optimizer terminates when:
+- Gradient norm $\|\nabla \mathcal{L}\| < 10^{-5}$, or
+- Function value change $|\mathcal{L}^{(k+1)} - \mathcal{L}^{(k)}| < 10^{-9}$, or
+- Maximum iterations (500) reached
+
+**Identifiability conditions:** The system is identified when:
+1. Cutoff $c$ lies within the bulk of the distribution (not in extreme tails)
+2. Acceptance rate $r \in (0.01, 0.99)$ (not nearly 0 or 1)
+3. Observed mean exceeds cutoff: the published average satisfies $\bar{X} > c$
+
+When parameters hit boundary constraints (e.g., $\hat{\sigma} = 200$), this suggests model misspecification—the true distribution may not be normal.
 
 ---
 
@@ -160,7 +291,7 @@ Initial guesses are tier-specific (lower $\mu$ for Tier 1, higher for Tier 4).
 | **Westinghouse** | 411.9 | 173.0 | 603.1 | 96.4 | 85 pts |
 | **South Shore** | 304.6 | 196.9 | 590.1 | 87.7 | 135 pts |
 
-*Hit optimization bounds—may indicate non-normal distribution
+*Hit optimization bounds—may indicate non-normal distribution or insufficient data
 
 ### Critical Finding: The Bifurcated System
 
@@ -178,34 +309,308 @@ The T4 $\hat{\sigma}$ values reveal **two fundamentally different competitive re
 
 ---
 
-## 5. Physics-Based Simulation
+## 5. Monte Carlo Simulation: Statistical Formulation
 
-### Model Architecture (v13)
+The MLE analysis recovers population parameters but doesn't model **behavioral dynamics**—how students choose which schools to rank, and how these choices interact with the matching algorithm. This section develops the simulation framework.
 
-The MLE analysis recovers population parameters, but doesn't model **behavioral dynamics**. The physics simulation adds:
+### 5.1 Probability Space and Measure-Theoretic Foundation
 
-1. **Utility-based preferences:** Students rank schools by:
-   $$U_{ij} = P_j - d_{ij} \cdot f(t_i, s_i) - \gamma(r_i, r_j) + \delta_j(t_i, s_i, r_i)$$
-   - $P_j$ = school prestige
-   - $d_{ij}$ = distance (miles)
-   - $f(t_i, s_i)$ = friction coefficient (high scorers travel more)
-   - $\gamma$ = cross-region penalty
-   - $\delta_j$ = school-specific demand modifier
+We work on a probability space $(\Omega, \mathcal{F}, P)$ where:
 
-2. **Skew-normal score generation:** Conditional on region and tier:
-   $$X_i \mid (R_i = r, T_i = t) \sim \text{SkewNormal}(\xi_{r,t}, \omega_{r,t}, \alpha_{r,t})$$
+- **$\Omega$** (sample space): The set of all possible outcomes of the random experiment. A single outcome $\omega \in \Omega$ represents one complete realization of the applicant pool—including every student's score, tier, region, preference list, and tie-breaker.
 
-3. **Serial dictatorship matching:** Process students by score; each matched to highest-ranked school with available seats.
+- **$\mathcal{F}$** (σ-algebra): The Borel σ-algebra on $\Omega$, generated by the product topology. This ensures all events of interest (e.g., "student $i$ is admitted to school $s$") are measurable.
 
-### Performance (500-trial Optuna optimization)
+- **$P$** (probability measure): The measure induced by the joint distribution of all random variables, satisfying the Kolmogorov axioms.
 
-| Metric | Value |
-|--------|-------|
-| Overall MAE | 22.79 pts |
-| Max Error | 84.4 pts |
-| Max School MAE | 30.0 pts |
+### 5.2 Fundamental Sets
 
-The model predicts cutoffs within ~23 points on average across all 44 school-tier combinations.
+Before defining random variables, we establish the key sets in our model:
+
+**School Set:**
+$$\mathcal{S} = \{s_1, s_2, \ldots, s_{11}\}$$
+
+where the schools are: Payton, Northside, Young, Jones, Lane, Lindblom, Westinghouse, King, Brooks, Hancock, South Shore.
+
+**Tier Set:**
+$$\mathcal{T} = \{1, 2, 3, 4\}$$
+
+representing the four CPS socioeconomic tiers.
+
+**Region Set:**
+$$\mathcal{R} = \{\text{North}, \text{Loop}, \text{West}, \text{South}\}$$
+
+representing geographic partitions of Chicago.
+
+**Preference List Space:**
+$$\mathcal{S}^{\leq 6} = \bigcup_{k=0}^{6} \mathcal{S}^{(k)}$$
+
+where $\mathcal{S}^{(k)}$ denotes the set of all **ordered $k$-tuples of distinct schools**. Students may rank up to 6 schools; $\mathcal{S}^{(0)} = \{\emptyset\}$ represents the empty list.
+
+**Cardinality:** $|\mathcal{S}^{(k)}| = \frac{11!}{(11-k)!} = 11 \cdot 10 \cdots (12-k)$, so:
+
+$$|\mathcal{S}^{\leq 6}| = 1 + 11 + 110 + 990 + 7920 + 55440 + 332640 = 397112$$
+
+### 5.3 Random Variables: Formal Definitions
+
+A **random variable** is a measurable function from the sample space to a measurable space. For each student $i \in \{1, 2, \ldots, n\}$ (where $n$ is the applicant pool size), we define:
+
+| Random Variable | Formal Definition | Interpretation |
+|-----------------|-------------------|----------------|
+| $X_i: \Omega \to [400, 900]$ | Composite score | Sum of grades component and HSAT exam score |
+| $T_i: \Omega \to \mathcal{T}$ | Tier assignment | Determined by census tract of residence |
+| $R_i: \Omega \to \mathcal{R}$ | Geographic region | North/Loop/West/South partition |
+| $\mathbf{P}_i: \Omega \to \mathcal{S}^{\leq 6}$ | Preference list | Ordered ranking of schools |
+| $U_i: \Omega \to [0, 1]$ | Tie-breaker | Uniform random variable for ordering ties |
+| $M_i: \Omega \to \mathcal{S} \cup \{\emptyset\}$ | Match outcome | Assigned school (or $\emptyset$ if unmatched) |
+
+**Measurability:** Each random variable is measurable with respect to the appropriate σ-algebra:
+- $X_i$ is $(\mathcal{F}, \mathcal{B}([400,900]))$-measurable
+- $T_i$ is $(\mathcal{F}, 2^{\mathcal{T}})$-measurable (discrete)
+- $M_i$ is $(\mathcal{F}, 2^{\mathcal{S} \cup \{\emptyset\}})$-measurable (discrete)
+
+**Explicit Sample Space Construction:**
+
+For a simulation with $n$ students, the sample space decomposes as a product:
+
+$$\Omega = \prod_{i=1}^{n} \Omega_i$$
+
+where each student's individual outcome space is:
+
+$$\Omega_i = [400, 900] \times \mathcal{T} \times \mathcal{R} \times \mathcal{S}^{\leq 6} \times [0,1]$$
+
+A single element $\omega \in \Omega$ is an $n$-tuple:
+
+$$\omega = \bigl((x_1, t_1, r_1, \mathbf{p}_1, u_1), \ldots, (x_n, t_n, r_n, \mathbf{p}_n, u_n)\bigr)$$
+
+The random variable $X_i$ is the **coordinate projection** extracting the score: $X_i(\omega) = x_i$.
+
+### 5.4 Score Distribution Model
+
+Scores are generated from a **skew-normal distribution** conditional on region and tier. The skew-normal family extends the normal distribution with an asymmetry parameter.
+
+**Definition (Skew-Normal Distribution):** A random variable $Y$ follows a skew-normal distribution with parameters $(\xi, \omega, \alpha)$, written $Y \sim \text{SN}(\xi, \omega, \alpha)$, if its PDF is:
+
+$$f_Y(y; \xi, \omega, \alpha) = \frac{2}{\omega} \phi\left(\frac{y - \xi}{\omega}\right) \Phi\left(\alpha \cdot \frac{y - \xi}{\omega}\right)$$
+
+where:
+- $\phi(z) = \frac{1}{\sqrt{2\pi}} e^{-z^2/2}$ is the standard normal PDF
+- $\Phi(z) = \int_{-\infty}^{z} \phi(u) \, du$ is the standard normal CDF
+
+**Parameters:**
+
+| Parameter | Symbol | Domain | Effect on Distribution |
+|-----------|--------|--------|------------------------|
+| Location | $\xi$ | $\mathbb{R}$ | Shifts distribution left/right (not the mean unless $\alpha=0$) |
+| Scale | $\omega$ | $\mathbb{R}_{>0}$ | Controls spread (not SD unless $\alpha=0$) |
+| Shape | $\alpha$ | $\mathbb{R}$ | Controls asymmetry: $\alpha > 0$ → right-skew, $\alpha < 0$ → left-skew, $\alpha = 0$ → normal |
+
+**Conditional Distribution:**
+
+For each region-tier pair $(r, t) \in \mathcal{R} \times \mathcal{T}$, we have parameters $(\xi_{r,t}, \omega_{r,t}, \alpha_{r,t})$. The conditional distribution is:
+
+$$X_i \mid (R_i = r, T_i = t) \sim \text{SN}(\xi_{r,t}, \omega_{r,t}, \alpha_{r,t})$$
+
+This yields a $4 \times 4 = 16$ parameter grid, reflecting empirical heterogeneity.
+
+**Justification:** Standardized test score distributions typically exhibit ceiling effects (mass near maximum) for high-performing subpopulations and floor effects for others. The skew-normal captures this parsimoniously.
+
+**Truncation to Valid Range:**
+
+Raw scores are clipped to enforce domain constraints:
+
+$$\tilde{X}_i = \text{clip}(X_i; 400, 900) \equiv \min(\max(X_i, 400), 900)$$
+
+Formally, $\tilde{X}_i = h \circ X_i$ where $h: \mathbb{R} \to [400, 900]$ is the clipping function. Since $h$ is Borel-measurable, $\tilde{X}_i$ remains a valid random variable.
+
+### 5.5 The Matching Mechanism
+
+CPS uses a **serial dictatorship** mechanism—a classical algorithm from mechanism design with important theoretical properties.
+
+#### 5.5.1 Capacity Constraints
+
+Each school $s \in \mathcal{S}$ has total capacity $C_s \in \mathbb{Z}_{>0}$, partitioned as:
+
+$$C_s = C_s^{\text{Rank}} + \sum_{t=1}^{4} C_s^{(t)}$$
+
+where:
+
+| Capacity Type | Formula | Interpretation |
+|---------------|---------|----------------|
+| $C_s^{\text{Rank}}$ | $\lfloor 0.30 \cdot C_s \rfloor$ | Rank-based seats (top scorers citywide) |
+| $C_s^{(t)}$ | $\lfloor 0.175 \cdot C_s \rfloor$ | Tier-$t$ seats (competition within tier) |
+
+Since $0.30 + 4(0.175) = 1.0$, this partitions all seats.
+
+#### 5.5.2 Tie-Breaking
+
+When multiple students share the same score, we need a strict ordering. Define:
+
+$$U_i: \Omega \to [0, 1], \quad U_i \sim \text{Uniform}(0, 1), \quad \text{i.i.d.}$$
+
+Since $U_i$ is continuous, $P(U_i = U_j) = 0$ for $i \neq j$, guaranteeing a strict total order with probability 1.
+
+#### 5.5.3 Score-Ordering Permutation
+
+**Definition (Permutation):** A permutation of $\{1, \ldots, n\}$ is a bijection $\pi: \{1, \ldots, n\} \to \{1, \ldots, n\}$. The set of all such permutations forms the **symmetric group** $S_n$ under function composition, with $|S_n| = n!$.
+
+**Notation:**
+- $\pi(k) = i$ means "the student in rank position $k$ is student $i$"
+- $\pi^{-1}(i) = k$ means "student $i$ is in rank position $k$"
+
+Define the **score-ordering permutation** $\pi \in S_n$ by:
+
+$$\pi^{-1}(i) < \pi^{-1}(j) \iff \bigl(\tilde{X}_i > \tilde{X}_j\bigr) \lor \bigl(\tilde{X}_i = \tilde{X}_j \land U_i < U_j\bigr)$$
+
+This establishes a strict total ordering: student $\pi(1)$ has the highest score, $\pi(2)$ has the second-highest, and so on. Writing $X_{(k)}$ for the $k$-th order statistic, we have $X_{(1)} \geq X_{(2)} \geq \cdots \geq X_{(n)}$ where $X_{(k)} = \tilde{X}_{\pi(k)}$. Ties are broken by $U_i$.
+
+**Observation:** $\pi$ is itself a random variable, $\pi: \Omega \to S_n$, determined by the scores and tie-breakers.
+
+#### 5.5.4 Algorithm: Two-Phase Serial Dictatorship
+
+**Phase 1 (Rank-Based Allocation):**
+
+Process students in order $\pi(1), \pi(2), \ldots, \pi(n)$ (highest to lowest score):
+
+```
+for k = 1 to n:
+    i = π(k)                           # student with k-th highest score
+    for s in P_i:                      # iterate through student's preferences
+        if C_s^Rank > 0:               # rank seats available?
+            M_i = s                    # assign student to school
+            C_s^Rank = C_s^Rank - 1    # decrement capacity
+            break
+    if no assignment made:
+        M_i = ∅ (pending Phase 2)
+```
+
+**Phase 2 (Tier-Based Allocation):**
+
+For each tier $t \in \{1, 2, 3, 4\}$:
+
+```
+I_t = {i : T_i = t and M_i = ∅}        # unmatched tier-t students
+sort I_t by score (descending)
+for i in I_t:
+    for s in P_i:
+        if C_s^(t) > 0:                # tier-t seats available?
+            M_i = s
+            C_s^(t) = C_s^(t) - 1
+            break
+```
+
+#### 5.5.5 Matching Function (Formal)
+
+The matching function $M_i: \Omega \to \mathcal{S} \cup \{\emptyset\}$ is defined implicitly by the algorithm. For any $\omega \in \Omega$:
+
+$$M_i(\omega) = \begin{cases}
+s^* & \text{if } \exists s^* \in \mathbf{P}_i(\omega) \text{ with available capacity when } i \text{ is processed} \\
+\emptyset & \text{otherwise (unmatched)}
+\end{cases}$$
+
+**Key property:** $M_i$ is a **deterministic function** of $(X_1, \ldots, X_n, T_1, \ldots, T_n, \mathbf{P}_1, \ldots, \mathbf{P}_n, U_1, \ldots, U_n)$. All randomness in $M_i$ derives from these inputs.
+
+#### 5.5.6 Strategy-Proofness
+
+**Theorem (Satterthwaite, 1975):** Serial dictatorship is **strategy-proof**: for any student $i$, truthfully reporting preferences $\mathbf{P}_i$ is a (weakly) dominant strategy, regardless of others' strategies.
+
+**Implication:** We can assume all competitors submit truthful preferences (generated via utility maximization), since no strategic manipulation improves outcomes.
+
+### 5.6 Monte Carlo Estimator
+
+#### 5.6.1 Target Quantity
+
+We seek to estimate:
+
+$$p_s \equiv P(M_{\text{user}} = s \mid X_{\text{user}} = x, T_{\text{user}} = t, s \in \mathbf{P}_{\text{user}})$$
+
+the probability that a student with score $x$ and tier $t$ is admitted to school $s$, given they ranked $s$.
+
+#### 5.6.2 Indicator Random Variable
+
+For each simulation $b \in \{1, \ldots, B\}$, define the **admission indicator** random variable:
+
+$$Y_s^{(b)}: \Omega \to \{0, 1\}$$
+
+This random variable equals 1 if the user is admitted to school $s$ in simulation $b$, and 0 otherwise. Formally:
+
+$$Y_s^{(b)}(\omega) = \mathbb{1}\bigl[M_{\text{user}}^{(b)}(\omega) = s\bigr]$$
+
+where $\mathbb{1}[\cdot]$ denotes the **indicator function**:
+
+$$\mathbb{1}[A] = \begin{cases} 1 & \text{if } A \text{ is true} \\ \newline 0 & \text{if } A \text{ is false} \end{cases}$$
+
+**Distribution:** Since each simulation draws an independent applicant pool:
+
+$$Y_s^{(b)} \sim \text{Bernoulli}(p_s), \quad \text{i.i.d. across } b$$
+
+#### 5.6.3 Point Estimator
+
+The Monte Carlo estimator is the sample mean:
+
+$$\hat{p}_s = \frac{1}{B} \sum_{b=1}^{B} Y_s^{(b)}$$
+
+**Properties:**
+
+1. **Unbiasedness:** The estimator is unbiased since each $Y_s^{(b)}$ has expectation $p_s$:
+
+$$\begin{aligned}
+\mathbb{E}[\hat{p}_s] &= \frac{1}{B} \sum_{b=1}^{B} \mathbb{E}\bigl[Y_s^{(b)}\bigr]
+&= \frac{1}{B} \cdot B \cdot p_s
+&= p_s
+\end{aligned}$$
+
+2. **Consistency:** By the Strong Law of Large Numbers:
+   $$\hat{p}_s \xrightarrow{a.s.} p_s \quad \text{as } B \to \infty$$
+
+3. **Asymptotic Normality:** By the Central Limit Theorem:
+   $$\sqrt{B}(\hat{p}_s - p_s) \xrightarrow{d} \mathcal{N}(0, p_s(1-p_s))$$
+
+#### 5.6.4 Variance and Standard Error
+
+Since $Y_s^{(b)} \sim \text{Bernoulli}(p_s)$ with $\text{Var}(Y_s^{(b)}) = p_s(1-p_s)$:
+
+$$\text{Var}(\hat{p}_s) = \frac{1}{B^2} \sum_{b=1}^{B} \text{Var}(Y_s^{(b)}) = \frac{p_s(1-p_s)}{B}$$
+
+The **standard error** (estimated by plug-in):
+
+$$\widehat{\text{SE}}(\hat{p}_s) = \sqrt{\frac{\hat{p}_s(1-\hat{p}_s)}{B}}$$
+
+**Numerical Examples ($B = 100$):**
+
+| $\hat{p}_s$ | $\widehat{\text{SE}}$ | 95% CI (Wald) |
+|-------------|----------------------|---------------|
+| 0.50 | 0.050 | [0.40, 0.60] |
+| 0.80 | 0.040 | [0.72, 0.88] |
+| 0.95 | 0.022 | [0.91, 0.99] |
+
+**Scaling:** SE decreases as $O(1/\sqrt{B})$. Quadrupling simulations halves the confidence interval width.
+
+### 5.7 Assumptions and Limitations
+
+1. **Independence Across Simulations:** Each simulation $b$ draws an independent applicant pool from the score distribution model. This assumes stationarity of the data-generating process.
+
+2. **Proportional Scaling:** We simulate $n \approx 2000$ students (vs. ~22,000 actual applicants). Capacities are scaled:
+   $$C_s^{(\cdot)} \leftarrow \left\lfloor \frac{n}{22000} \cdot C_s^{(\cdot)} \right\rfloor$$
+   This preserves seats-to-applicants ratios but may distort edge effects.
+
+3. **Model Misspecification:** The skew-normal family may not capture:
+   - Multimodality in true score distributions
+   - Heavy tails or outlier behavior
+   - Year-to-year variation (temporal non-stationarity)
+   - Unobserved confounders correlated with scores
+
+4. **Deterministic Competitor Preferences:** Other students' preferences are computed via a utility function depending on school prestige, distance, and region penalties. Only the user's preferences are set exogenously.
+
+5. **Truthful Revelation:** By strategy-proofness, we assume all students report truthfully—no strategic preference manipulation.
+
+### 5.8 Interpretation
+
+The estimator $\hat{p}_s$ has a **frequentist interpretation**:
+
+> "If we repeatedly drew applicant pools from this model and ran the CPS matching algorithm, the fraction of replications in which a student with profile $(x, t)$ is admitted to school $s$ converges to $\hat{p}_s$."
+
+This is *not* a Bayesian posterior probability (which would incorporate parameter uncertainty). We treat model parameters as fixed (though estimated) and quantify uncertainty from competitor randomness only.
 
 ---
 
@@ -234,17 +639,18 @@ The truncated statistics create a systematic illusion of extreme competitiveness
 ### Finding 3: Two Distinct School Systems Within One Policy
 
 **Elite Schools:** T4 $\hat{\mu}$ = 830-888, $\hat{\sigma}$ = 3-82
+
 **Regional Schools:** T4 $\hat{\mu}$ = 590-690, $\hat{\sigma}$ = 60-96
 
-The 200+ point gap in population means reflects the fundamental bifurcation in Chicago's educational landscape.
+The 200+ point gap in population means reflects fundamental bifurcation in Chicago's educational landscape.
 
 ### Finding 4: Regional Schools Show Inverted Tier Patterns
 
 At elite schools: T4 cutoff > T3 > T2 > T1 (expected)
 
-At some regional schools (e.g., South Shore): **T4 cutoff > T1**
+At some regional schools (e.g., South Shore): **T4 cutoff < T1 cutoff**
 
-This inversion occurs because high-scoring T1 students from the South Side *prefer elite schools* while high-scoring T4 students are "stuck" at regional schools due to geographic preferences.
+This inversion occurs because high-scoring T1 students from the South Side *prefer elite schools*, while high-scoring T4 students are geographically constrained to regional options.
 
 ---
 
@@ -279,17 +685,22 @@ jupyter notebook sehs_analysis_notebook.ipynb
 - **Primary:** "Initial Offer Point Totals for Selective Enrollment High Schools 2025-2026" (CPS, released 3/14/2025)
 - **Applicant estimates:** Historical enrollment data and reported application volumes
 
-### Assumptions
+### Simulation Calibration
 
-1. **Normality:** Scores within each tier follow a normal distribution (relaxed to skew-normal in simulation)
-2. **Uniform tier distribution:** Applicants split 25% per tier (simplification)
-3. **Utility maximization:** Students rank schools by expected utility
+Model parameters $\{\xi_{r,t}, \omega_{r,t}, \alpha_{r,t}\}$ were optimized using Optuna (500 trials) with Tree-structured Parzen Estimators, minimizing MAE between simulated and historical cutoff scores.
+
+**Performance:**
+| Metric | Value |
+|--------|-------|
+| Overall MAE | 22.79 pts |
+| Max Error | 84.4 pts |
+| Max School MAE | 30.0 pts |
 
 ### Limitations
 
-- MLE assumes normal distributions; some schools hit optimization bounds suggesting non-normality
+- MLE assumes normal distributions; boundary-hitting suggests non-normality at some schools
 - Applicant counts are estimated, not observed
-- Geographic preference model may not capture all behavioral factors (e.g., sibling attendance, program specialties)
+- Geographic preference model may not capture sibling attendance, program specialties, etc.
 
 ---
 
