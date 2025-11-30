@@ -29,6 +29,7 @@ Since we only observe students above a threshold, we're dealing with **truncated
 5. [Monte Carlo Simulation: Statistical Formulation](#5-monte-carlo-simulation-statistical-formulation)
 6. [Key Findings](#6-key-findings)
 7. [Repository Structure](#7-repository-structure)
+8. [Technical Details](#8-technical-details)
 
 ---
 
@@ -702,14 +703,14 @@ jupyter notebook sehs_analysis_notebook.ipynb
 
 ---
 
-## Technical Details
+## 8. Technical Details
 
 ### Data Sources
 
 - **Primary:** "Initial Offer Point Totals for Selective Enrollment High Schools 2025-2026" (CPS, released 3/14/2025)
 - **Applicant estimates:** Historical enrollment data and reported application volumes
 
-### Simulation Calibration
+### 8. Simulation Calibration and Validation
 
 Model parameters $\{\xi_{r,t}, \omega_{r,t}, \alpha_{r,t}\}$ were optimized using Optuna (500 trials) with Tree-structured Parzen Estimators, minimizing MAE between simulated and historical cutoff scores.
 
