@@ -3,7 +3,9 @@
 ## Recovering Hidden Population Parameters from Truncated Distributions via Maximum Likelihood Estimation
 
 **Author:** Andrew Hood
+
 **Date:** November 2025
+
 **Data Source:** CPS Official 2024-2025 Cutoffs (released 3/14/2025)
 
 ---
