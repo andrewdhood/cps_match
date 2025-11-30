@@ -35,7 +35,6 @@ Since we only observe students above a threshold, we're dealing with **truncated
 
 
 ## 0. On the Weight of a Number 
-*This essay accompanies a statistical analysis of CPS Selective Enrollment admissions data. The analysis, along with code and methodology, is available at [https://github.com/andrewdhood/cps_match](https://github.com/andrewdhood/cps_match). The numbers can tell us what is happening. What we should do about it is a question the numbers cannot answer.*
 
 ### On Fairness, Equity, and the Impossible Choices of Selective Enrollment
 
@@ -55,7 +54,7 @@ I cannot always tell them that.
 
 ### What We Talk About When We Talk About Fairness
 
-The word "fair" . It sounds simple until you ask what it means. A child's word, really; a word invoked on playgrounds and in sibling disputes. "That's not fair." But the moment you press on it, the moment you ask fair according to whom, fair measured how, fair compared to what, the ground gives way.
+The word "fair" sounds simple until you ask what it means. A child's word, really; a word invoked on playgrounds and in sibling disputes. "That's not fair." But the moment you press on it, the moment you ask fair according to whom, fair measured how, fair compared to what, the ground gives way.
 
 Consider the Tier 4 family on the North Side, Lincoln Park or Lakeview, who has watched their child work diligently for three years. Straight A's. Ninety-ninth percentile. A score of 891. And they learn that their child did not get into Northside College Prep, while a student from Englewood with an 820 did. 
 
@@ -79,9 +78,7 @@ There is a distinction that educators and policy-makers invoke, though it often 
 
 Fairness, in the strict sense, means treating everyone the same. The same test. The same scoring rubric. The same cutoff. This is the equality of inputs. A race where everyone starts at the same line.
 
-Equity means something different. It means adjusting inputs to achieve a more equal distribution of outcomes. If some runners started further back through no fault of their own, if their starting position was determined by their parents' zip code, by the color of their skin, by the tax base of their school district, then equity might mean moving their starting line forward. Or giving them better shoes. Or acknowledging that "the same race" was never really the same.
-
-The CPS tier system is an equity intervention. It says: we will not pretend that a score of 820 from Englewood and a score of 820 from Lincoln Park represent the same thing. We will compare students to other students from similar circumstances. We will reserve seats for each tier, so that the selective enrollment schools are not simply mirrors of the city's existing inequality.
+Equity means something different. It means adjusting inputs to achieve a more equal distribution of outcomes. The CPS tier system is an equity intervention. It says: we will not pretend that a score of 820 from Englewood and a score of 820 from Lincoln Park represent the same thing. We will compare students to other students from similar circumstances. We will reserve seats for each tier, so that the selective enrollment schools are not simply mirrors of the city's existing inequality.
 
 This is a defensible position. The data on outcomes is genuinely encouraging. Students from lower-income backgrounds who attend these schools graduate at higher rates, attend college at higher rates, earn more over their lifetimes. The intervention appears to work, in the sense that it creates pathways that would not otherwise exist.
 
@@ -101,7 +98,7 @@ The reasons are pedagogical. The test is not aligned with the curriculum. Prepar
 
 But the reasons run deeper than that. Teachers enter the profession, most of them, because they believe in the transformative power of learning. They believe that education is about growth, about curiosity, about helping young people become more fully themselves. And then they are asked to participate in a system that reduces all of that potential in a young person to a number. A number that will, for some students, open doors. And for others, firmly close them.
 
-There is something corrosive about teaching toward a high-stakes exam. It narrows the radius of what counts as valuable. For many students, especially in Montessori schools where testing is de-emphasized, this might the first exam, let alone timed exam, that they have ever experienced. And this exam tells students, implicitly, that the point of learning is to be measured, sorted, ranked. That the most important goals are not about understanding, but instead performance.
+There is something corrosive about teaching toward a high-stakes exam. It narrows the radius of what counts as valuable. For many students, especially in Montessori schools where testing is de-emphasized, this might be the first exam, let alone timed exam, that they have ever experienced. And this exam tells students, implicitly, that the point of learning is to be measured, sorted, ranked. That the most important goals are not about understanding, but instead performance.
 
 And yet. What is the alternative? Without some mechanism for selection, how do you allocate scarce seats? Do you lottery them, introducing randomness that is truly arbitrary? Do you assign them by neighborhood, replicating the very segregation that selective enrollment was designed to disrupt? Do you eliminate selective enrollment entirely, dismantling programs that have genuinely helped students from underserved communities?
 
@@ -173,7 +170,9 @@ The best we can do, I think, is to see them clearly. To name what is actually ha
 
 I am not sure it is. It is a system with many equations, and in many variables, and when we solve our complicated system, the solution often feels unfair. But I am also not sure what we would choose instead.
 
-I'm not sure a students' achievements can ever be truly captured within a confidence interval. And perhaps that uncertainty is the most honest place to end.
+I'm not sure a student's achievements can ever be truly captured within a confidence interval. And perhaps that uncertainty is the most honest place to end.
+
+---
 
 
 
