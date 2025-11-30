@@ -46,7 +46,7 @@ I have sat with families in the aftermath of these moments. I have watched paren
 
 "Is this good? Is this good enough? What does this mean for my child?"
 
-What I have come to understand, after years of tutoring students through this process, is that the question they are really asking is not about the number at all. They are asking about fairness. They are asking whether the world their child is about to enter will recognize their effort, their potential, their worth. And they are asking me to tell them that it will.
+What I have come to understand, after years of tutoring students through this process, is that the question they are really asking is not about the number at all. They are asking about fairness. They are asking: "Will the world my child is about to enter into recognize their effort, their potential, their worth?" And they are asking me to tell them that it will.
 
 I cannot always tell them that.
 
