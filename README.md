@@ -124,7 +124,7 @@ The cruelest irony of this system is that its opacity harms most the families it
 
 ### The View from Inside the Test
 
-And then there is the child. Twelve or thirteen years old. Sitting in a classroom on a Tuesday morning in October, bubbling in answers that will shape the next four years of their life.
+And then there is the child. Twelve or thirteen years old. Sitting in a classroom on a Tuesday morning in October, answering questions on a laptop that will shape the next four years of their life.
 
 We do not often enough ask what this experience is like from the inside. We talk about the policy, the equity considerations, the admissions statistics. We do not talk about the specific terror of being thirteen and knowing that this morning matters in ways that most mornings do not.
 
