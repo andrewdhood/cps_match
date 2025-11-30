@@ -1,6 +1,6 @@
 # Using Inferential Statistics to Estimate Chicago Public Schools Selective Enrollment Applicant Distribution Parameters and Building a Monte-Carlo Simulation Model
 
-## Recovering Hidden Score Population Parameters from Public Truncated Data Using Inferential Statistics (Constrained Maximum-Likelihood Estimation) and Building a Monte-Carlo Simulation to Predict Admission Probabilities
+## Recovering Hidden Score Population Parameters from Public Truncated Data Using Constrained Maximum-Likelihood Estimation and Building a Monte-Carlo Simulation to Predict Admission Probabilities
 
 **Author:** Andrew Hood
 
