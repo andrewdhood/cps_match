@@ -21,7 +21,7 @@ Since we only observe students above a threshold, we're dealing with **truncated
 ---
 
 ## Table of Contents
-
+0. [On the Weight of a Number](#0-prologue)
 1. [The Truncation Problem](#1-the-truncation-problem)
 2. [Mathematical Framework](#2-mathematical-framework)
 3. [MLE Implementation](#3-mle-implementation)
@@ -32,6 +32,150 @@ Since we only observe students above a threshold, we're dealing with **truncated
 8. [Technical Details and Model Validation](#8-technical-details)
 
 ---
+
+
+# Prologue. On the Weight of a Number
+
+## On Fairness, Equity, and the Impossible Choices of Selective Enrollment
+
+---
+
+There is a moment I witness every year, sometime in late October or early November, when a child learns their score. The number arrives by email, stark and final. 847. Or 791. Or 863. And in that instant, a thirteen-year-old must confront something that most adults spend their lives avoiding: the sensation of being weighed, measured, and reduced to a single data point.
+
+I have sat with families in the aftermath of these moments. I have watched parents try to translate the number into meaning, flipping between browser tabs, cross-referencing cutoff charts, asking me questions I sometimes cannot answer. 
+
+"Is this good? Is this enough? What does this mean for my child?"
+
+What I have come to understand, after years of tutoring students through this process, is that the question they are really asking is not about the number at all. They are asking about fairness. They are asking whether the world their child is about to enter will recognize their effort, their potential, their worth. And they are asking me to tell them that it will.
+
+I cannot always tell them that.
+
+---
+
+### What We Talk About When We Talk About Fairness
+
+The word "fair" is a trapdoor. It sounds simple. A child's word, really; a word invoked on playgrounds and in sibling disputes. "That's not fair." But the moment you press on it, the moment you ask fair according to whom, fair measured how, fair compared to what, the ground gives way.
+
+Consider the Tier 4 family on the North Side, Lincoln Park or Lakeview, who has watched their child work diligently for three years. Straight A's. Ninety-ninth percentile. A score of 891. And they learn that their child did not get into Northside College Prep, while a student from Englewood with an 820 did. 
+
+Is that fair?
+
+The parent's grievance is certainly not invented. Their child did, by any conventional academic measure, perform better. The rules were known in advance, yes, but the outcome still stings. They played the game correctly and lost to someone who, by the rules of the game as they understood it, played it less well.
+
+Now consider the Tier 1 family on the South Side. Their child also worked diligently. Also got A's, though at a school where getting A's meant something different. A school where there was no test prep center down the block. Where the eighth-grade math teacher was a long-term substitute. Where the library closed at 3pm because there was no funding for after-school staff. This child scored 820. The same score that would be mediocre in Lincoln Park represents something closer to extraordinary in Englewood.
+
+Is it fair to compare these two numbers as if they were the same thing?
+
+This is the crux of it. The Tier 4 parent is asking about fairness as consistency: the same rules applied to everyone, the same bar to clear. The Tier 1 parent, if they are even aware of the comparison being made, is asking about fairness as context: the recognition that the bar was never at the same height to begin with.
+
+Both of these are coherent definitions of fairness. Both have moral weight. And they are, in this system, mutually exclusive.
+
+---
+
+### The Difference Between Fair and Equitable
+
+There is a distinction that educators and policy-makers invoke, though it often clarifies less than it obscures. Fairness versus equity.
+
+Fairness, in the strict sense, means treating everyone the same. The same test. The same scoring rubric. The same cutoff. This is the equality of inputs. A race where everyone starts at the same line.
+
+Equity means something different. It means adjusting inputs to achieve a more equal distribution of outcomes. If some runners started further back through no fault of their own, if their starting position was determined by their parents' zip code, by the color of their skin, by the tax base of their school district, then equity might mean moving their starting line forward. Or giving them better shoes. Or acknowledging that "the same race" was never really the same.
+
+The CPS tier system is an equity intervention. It says: we will not pretend that a score of 820 from Englewood and a score of 820 from Lincoln Park represent the same thing. We will compare students to other students from similar circumstances. We will reserve seats for each tier, so that the selective enrollment schools are not simply mirrors of the city's existing inequality.
+
+This is a defensible position. The data on outcomes is genuinely encouraging. Students from lower-income backgrounds who attend these schools graduate at higher rates, attend college at higher rates, earn more over their lifetimes. The intervention appears to work, in the sense that it creates pathways that would not otherwise exist.
+
+But here is what the policy cannot do. It cannot make the Tier 4 family feel that the outcome was fair. Because by their definition of fairness, consistency, it was not.
+
+And here is what else the policy cannot do. It cannot explain itself. The system is so opaque, so poorly communicated, that many Tier 1 families do not even know the advantage exists. They see published averages that suggest their child has no chance. They do not apply to reach schools. The policy that was designed to help them fails in its implementation, because no one told them how it works.
+
+So we arrive at a system that is somehow equitable in design but unfair in perception; helpful to statisticians in theory but opaque to students in practice. A system that manages to leave almost everyone feeling wronged.
+
+---
+
+### The View from the Classroom
+
+Teachers hate this test. I say this not as an indictment but as an observation. The educators I have spoken with, almost without exception, resent what the HSAT represents.
+
+The reasons are pedagogical. The test is not aligned with the curriculum. Preparing students for it means diverting instructional time from the actual learning objectives of eighth grade. It creates a shadow curriculum, where some portion of every week becomes about test-taking strategies rather than genuine understanding.
+
+But the reasons run deeper than that. Teachers enter the profession, most of them, because they believe in the transformative power of learning. They believe that education is about growth, about curiosity, about helping young people become more fully themselves. And then they are asked to participate in a system that reduces all of that potential in a young person to a number. A number that will, for some students, open doors. And for others, firmly close them.
+
+There is something corrosive about teaching toward a high-stakes exam. It narrows the aperture of what counts as valuable. It tells students, implicitly, that the point of learning is to be measured, sorted, ranked. That the most important goals are not about understanding, but instead performance.
+
+And yet. What is the alternative? Without some mechanism for selection, how do you allocate scarce seats? Do you lottery them, introducing randomness that is truely arbitrary? Do you assign them by neighborhood, replicating the very segregation that selective enrollment was designed to disrupt? Do you eliminate selective enrollment entirely, dismantling programs that have genuinely helped students from underserved communities?
+
+There are no clean answers here. Every system of selection is a system of exclusion. There are only so many free parameters one can control. Every definition of merit is a choice about what to value. The test may be a blunt instrument, but the absence of any instrument is not obviously better.
+
+---
+
+### The View from the Kitchen Table
+
+I think often about what it feels like to be a parent in this system.
+
+You want, more than anything, for your child to be seen. You want the world to recognize what you recognize. The curiosity, the effort, the particular spark that makes your kid who they are. And instead, the world offers you a rubric. Four hundred fifty points for grades in four subjects. Four hundred fifty points for a test taken on a single morning in October. The sum of these numbers will determine, in large part, where your child spends the next four years.
+
+You do not experience this as a policy question. You experience it as a parent, lying awake at 2am, wondering if you should have started test prep earlier. Wondering if the B+ in science will matter. Wondering if you are putting too much pressure on your child, or not enough.
+
+For Tier 4 parents, there is often a particular flavor of anxiety. The sense that the game is rigged against you, that no matter how hard your child works, the rules have been written to favor someone else. This anxiety is not entirely unfounded. The tier system does, by design, create different cutoffs for different neighborhoods. But it is also, in some ways, a misreading of the landscape. The 30% of seats allocated by rank remain available to everyone. The regional schools are often far more accessible than the published statistics suggest. The anxiety is real, but the hopelessness is often unwarranted.
+
+For Tier 1 parents, the anxiety takes a different shape. It is the anxiety of navigating a system that was not designed with you in mind. Not because the policy excludes you, but because the information does. You may not know your tier. You may not understand that the cutoff for your tier is 150 points lower than the number you see in the newspaper. You may look at the published averages, 876 at Lane Tech, 894 at Northside, and conclude, reasonably but incorrectly, that your child has no chance.
+
+The cruelest irony of this system is that its opacity harms most the families it was built to help.
+
+---
+
+### The View from Inside the Test
+
+And then there is the child. Twelve or thirteen years old. Sitting in a classroom on a Tuesday morning in October, bubbling in answers that will shape the next four years of their life.
+
+We do not often enough ask what this experience is like from the inside. We talk about the policy, the equity considerations, the admissions statistics. We do not talk about the specific terror of being thirteen and knowing that this morning matters in ways that most mornings do not.
+
+I have worked with students who thrive under this pressure. Students who find the test clarifying, focusing, even exhilarating. But I have worked with more who do not. Students who know the material but freeze when the stakes are real. Students who are tired, or hungry, or anxious about something at home that has nothing to do with reading comprehension. Students who simply have a bad day, as all of us have bad days, and must live with the consequences for years.
+
+We have decided, as a city, that this is acceptable. That the benefits of selective enrollment, the rigorous academics, the pathways to college, the concentration of motivated peers, justify the cost of sorting children by a single high-stakes exam. Perhaps they do. But we should be honest about what that cost is. We are asking children to bear a weight that most adults would find crushing. We are telling them, at an age when identity is still forming, that they are the kind of person who scores 847, or 791, or 863. We are teaching them that the world measures, and that the measurement is final.
+
+Some of them will internalize this in ways that serve them well. They will learn to perform under pressure, to meet deadlines, to navigate systems that require performance on demand. These are, for better or worse, useful skills in the world as it exists.
+
+Others will internalize it differently. They will learn that they are not good enough. They will learn that effort does not always translate to outcome. They will learn, before they have the cognitive tools to process it, that the world is not fair. And they will not always learn the right lessons from this knowledge.
+
+---
+
+### What Would Better Look Like?
+
+I do not have a clean answer to the problems I have described. I am not sure anyone does. But I can gesture toward what better might look like, even if the path there is unclear.
+
+Better would be transparent. If the tier system creates a 150-point advantage for some students, that fact should be clearly explained to every family. Not buried in a PDF. Not discoverable only through third-party websites built by civic hackers. Stated plainly, in multiple languages, in every communication about selective enrollment.
+
+Better would be informative. Instead of publishing truncated averages that systematically overstate competitiveness, publish actual applicant distributions. Let families see what the competition really looks like. Give them probability estimates, not just cutoffs. Trust them with the truth.
+
+Better would be humane. The single-shot, no-retake structure of the HSAT is a choice, not a necessity. Other cities allow multiple testing dates. Others weight grades more heavily. Others have moved away from standardized testing entirely. There are alternatives, each with their own tradeoffs, but alternatives nonetheless.
+
+Better would be honest about what we are doing. We are sorting children. We are deciding, based on imperfect information, which students will have access to certain opportunities and which will not. This may be necessary. Scarcity is real. Selection is unavoidable. But we should not pretend it is anything other than what it is.
+
+---
+
+### The Question That Has No Answer
+
+Can any of this ever be simple?
+
+No. I do not think it can.
+
+Fairness and equity pull in different directions. Individual merit and structural inequality cannot be reconciled by any formula. The interests of students, parents, teachers, and policymakers do not fully align, and no system can satisfy all of them at once.
+
+What we can do, what I have tried to do with this analysis, is illuminate the tradeoffs. To show what the data actually says, beneath the opacity. To give families the information they need to navigate a system that was not designed to be navigable.
+
+And perhaps, also, to sit for a moment with the weight of it. The weight of a number. The weight carried by a thirteen-year-old in a testing room, by a parent at a kitchen table, by a teacher asked to sort children into futures.
+
+These are not simple problems. They will not be solved by better statistics, although better statistics can help. They are human problems, which is to say they are messy, contingent, and they resist optimization.
+
+The best we can do, I think, is to see them clearly. To name what is actually happening. And to ask, with whatever honesty we can muster, whether this is the system we would choose if we were choosing, rather than inheriting. 
+
+I am not sure it is. It is a system with many equations, and in many variables, and when we solve our complicated system, the solution often feels unfair. But I am also not sure what we would choose instead.
+
+I'm not sure a students' achievements can ever be truly captured within a confidence interval. And perhaps that uncertainty is the most honest place to end.
+
+
+
 
 ## 1. The Truncation Problem
 
