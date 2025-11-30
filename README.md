@@ -101,7 +101,7 @@ The reasons are pedagogical. The test is not aligned with the curriculum. Prepar
 
 But the reasons run deeper than that. Teachers enter the profession, most of them, because they believe in the transformative power of learning. They believe that education is about growth, about curiosity, about helping young people become more fully themselves. And then they are asked to participate in a system that reduces all of that potential in a young person to a number. A number that will, for some students, open doors. And for others, firmly close them.
 
-There is something corrosive about teaching toward a high-stakes exam. It narrows the aperture of what counts as valuable. It tells students, implicitly, that the point of learning is to be measured, sorted, ranked. That the most important goals are not about understanding, but instead performance.
+There is something corrosive about teaching toward a high-stakes exam. It narrows the aperture of what counts as valuable. For many students, especially in Montessori schools where testing is de-emphasized, this might the first exam, let alone timed exam, that they have ever experienced. And this exam tells students, implicitly, that the point of learning is to be measured, sorted, ranked. That the most important goals are not about understanding, but instead performance.
 
 And yet. What is the alternative? Without some mechanism for selection, how do you allocate scarce seats? Do you lottery them, introducing randomness that is truely arbitrary? Do you assign them by neighborhood, replicating the very segregation that selective enrollment was designed to disrupt? Do you eliminate selective enrollment entirely, dismantling programs that have genuinely helped students from underserved communities?
 
@@ -151,7 +151,7 @@ Better would be informative. Instead of publishing truncated averages that syste
 
 Better would be humane. The single-shot, no-retake structure of the HSAT is a choice, not a necessity. Other cities allow multiple testing dates. Others weight grades more heavily. Others have moved away from standardized testing entirely. There are alternatives, each with their own tradeoffs, but alternatives nonetheless.
 
-Better would be honest about what we are doing. We are sorting children. We are deciding, based on imperfect information, which students will have access to certain opportunities and which will not. This may be necessary. Scarcity is real. Selection is unavoidable. But we should not pretend it is anything other than what it is.
+Better would be honest about what we are doing. We are sorting children. We are deciding, based on imperfect information, which students will have access to certain opportunities and which will not. This process may be necessary, scarcity is real and some form of selection is unavoidable. But we should not pretend it is anything other than what it is.
 
 ---
 
