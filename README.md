@@ -640,7 +640,7 @@ This is *not* a Bayesian posterior probability (which would incorporate paramete
 
 A Tier 1 student can gain admission to Lane Tech with a score 147 points below the Tier 4 threshold. This is the policy working as designed—but the magnitude is striking.
 
-A Tier 1 student can gain admission to Lane Tech with a score 147 points below the Tier 4 threshold. This is the policy working as designed—but the magnitude is striking. For top-performing students, the drop of a letter grade from an A (112.5 points) to a B (75 points) is 37.5 points. This implies that for some schools, a tier 1 student with all B's (or mostly A's and a C) might have prospective chances than a tier 4 student with all A's. This effect is not present as strongly across all schools, and raises questions about how effective, lentiant, and equitable the current CPS match program is. This test subjects children to the kind of stress typically reserved for young adults.
+A Tier 1 student can gain admission to Lane Tech with a score 147 points below the Tier 4 threshold. This is the policy working as designed—but the magnitude is striking. For top-performing students, the drop of a letter grade from an A (112.5 points) to a B (75 points) is 37.5 points. This implies that for some schools, a tier 1 student with all B's (or mostly A's and a C) might have *better* prospective chances than a tier 4 student with all A's. This effect is not present as strongly across all schools, and raises questions about how effective, lentiant, and equitable the current CPS match program is. This test subjects children to the kind of stress typically reserved for young adults.
 
 
 ### Finding 2: Published Averages Overstate Competitiveness by 100-300 Points
