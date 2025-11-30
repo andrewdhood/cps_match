@@ -76,7 +76,7 @@ Both of these are coherent definitions of fairness. Both have moral weight. And 
 
 There is a distinction that educators and policy-makers invoke, though it often clarifies less than it obscures. Fairness versus equity.
 
-Fairness, in the strict sense, means treating everyone the same. The same test. The same scoring rubric. The same cutoff. This is the equality of inputs. A race where everyone starts at the same line.
+Fairness, in the strict sense, means treating everyone the same. The same test. The same scoring rubric. The same cutoff. This is the equality of inputs.
 
 Equity means something different. It means adjusting inputs to achieve a more equal distribution of outcomes. The CPS tier system is an equity intervention. It says: we will not pretend that a score of 820 from Englewood and a score of 820 from Lincoln Park represent the same thing. We will compare students to other students from similar circumstances. We will reserve seats for each tier, so that the selective enrollment schools are not simply mirrors of the city's existing inequality.
 
