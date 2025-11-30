@@ -598,7 +598,7 @@ where:
 | Capacity Type | Formula | Interpretation |
 |---------------|---------|----------------|
 | $C_s^{\text{Rank}}$ | $\lfloor 0.30 \cdot C_s \rfloor$ | Rank-based seats (top scorers citywide) |
-| $C_s^{(t)}$ | $\lfloor 0.175 \cdot C_s \rfloor$ | Tier-$t$ seats (competition within tier) |
+| $C_s^{(t)}$ | $\lfloor 0.175 \cdot C_s \rfloor$ | Tier-based $t$ seats (competition within tier) |
 
 Since $0.30 + 4(0.175) = 1.0$, this partitions all seats.
 
@@ -672,7 +672,7 @@ s^* & \text{if } \exists s^* \in \mathbf{P}_i(\omega) \text{ with available capa
 
 #### 5.5.6 Strategy-Proofness
 
-**Theorem (Satterthwaite, 1975):** Serial dictatorship is **strategy-proof**: for any student $i$, truthfully reporting preferences $\mathbf{P}_i$ is a (weakly) dominant strategy, regardless of others' strategies.
+**[Theorem (Satterthwaite, 1975)](https://www.wikiwand.com/en/articles/Gibbard%E2%80%93Satterthwaite_theorem):** Serial dictatorship is **strategy-proof**: for any student $i$, truthfully reporting preferences $\mathbf{P}_i$ is a (weakly) dominant strategy, regardless of others' strategies. This means that our process of simulating each score as ranked #1 will generate accurate probabilities as each student's rankings are independent of one another.
 
 **Implication:** We can assume all competitors submit truthful preferences (generated via utility maximization), since no strategic manipulation improves outcomes.
 
