@@ -55,7 +55,7 @@ I cannot always tell them that.
 
 ### What We Talk About When We Talk About Fairness
 
-The word "fair" is a trapdoor. It sounds simple. A child's word, really; a word invoked on playgrounds and in sibling disputes. "That's not fair." But the moment you press on it, the moment you ask fair according to whom, fair measured how, fair compared to what, the ground gives way.
+The word "fair" . It sounds simple until you ask what it means. A child's word, really; a word invoked on playgrounds and in sibling disputes. "That's not fair." But the moment you press on it, the moment you ask fair according to whom, fair measured how, fair compared to what, the ground gives way.
 
 Consider the Tier 4 family on the North Side, Lincoln Park or Lakeview, who has watched their child work diligently for three years. Straight A's. Ninety-ninth percentile. A score of 891. And they learn that their child did not get into Northside College Prep, while a student from Englewood with an 820 did. 
 
@@ -101,9 +101,9 @@ The reasons are pedagogical. The test is not aligned with the curriculum. Prepar
 
 But the reasons run deeper than that. Teachers enter the profession, most of them, because they believe in the transformative power of learning. They believe that education is about growth, about curiosity, about helping young people become more fully themselves. And then they are asked to participate in a system that reduces all of that potential in a young person to a number. A number that will, for some students, open doors. And for others, firmly close them.
 
-There is something corrosive about teaching toward a high-stakes exam. It narrows the aperture of what counts as valuable. For many students, especially in Montessori schools where testing is de-emphasized, this might the first exam, let alone timed exam, that they have ever experienced. And this exam tells students, implicitly, that the point of learning is to be measured, sorted, ranked. That the most important goals are not about understanding, but instead performance.
+There is something corrosive about teaching toward a high-stakes exam. It narrows the radius of what counts as valuable. For many students, especially in Montessori schools where testing is de-emphasized, this might the first exam, let alone timed exam, that they have ever experienced. And this exam tells students, implicitly, that the point of learning is to be measured, sorted, ranked. That the most important goals are not about understanding, but instead performance.
 
-And yet. What is the alternative? Without some mechanism for selection, how do you allocate scarce seats? Do you lottery them, introducing randomness that is truely arbitrary? Do you assign them by neighborhood, replicating the very segregation that selective enrollment was designed to disrupt? Do you eliminate selective enrollment entirely, dismantling programs that have genuinely helped students from underserved communities?
+And yet. What is the alternative? Without some mechanism for selection, how do you allocate scarce seats? Do you lottery them, introducing randomness that is truly arbitrary? Do you assign them by neighborhood, replicating the very segregation that selective enrollment was designed to disrupt? Do you eliminate selective enrollment entirely, dismantling programs that have genuinely helped students from underserved communities?
 
 There are no clean answers here. Every system of selection is a system of exclusion. There are only so many free parameters one can control. Every definition of merit is a choice about what to value. The test may be a blunt instrument, but the absence of any instrument is not obviously better.
 
@@ -113,7 +113,7 @@ There are no clean answers here. Every system of selection is a system of exclus
 
 I think often about what it feels like to be a parent in this system.
 
-You want, more than anything, for your child to be seen. You want the world to recognize what you recognize. The curiosity, the effort, the particular spark that makes your kid who they are. And instead, the world offers you a rubric. Four hundred fifty points for grades in four subjects. Four hundred fifty points for a test taken on a single morning in October. The sum of these numbers will determine, in large part, where your child spends the next four years.
+You want, more than anything, for your child to be seen. You want the world to recognize what you recognize. The curiosity, the effort, the spark that makes your child who they are. And instead, the world offers you a rubric. Four hundred fifty points for grades in four subjects. Four hundred fifty points for a test taken on a single morning in October. The sum of these numbers will determine, in large part, where your child spends the next four years.
 
 You do not experience this as a policy question. You experience it as a parent, lying awake at 2am, wondering if you should have started test prep earlier. Wondering if the B+ in science will matter. Wondering if you are putting too much pressure on your child, or not enough.
 
@@ -135,7 +135,7 @@ I have worked with students who thrive under this pressure. Students who find th
 
 We have decided, as a city, that this is acceptable. That the benefits of selective enrollment, the rigorous academics, the pathways to college, the concentration of motivated peers, justify the cost of sorting children by a single high-stakes exam. Perhaps they do. But we should be honest about what that cost is. We are asking children to bear a weight that most adults would find crushing. We are telling them, at an age when identity is still forming, that they are the kind of person who scores 847, or 791, or 863. We are teaching them that the world measures, and that the measurement is final.
 
-Some of them will internalize this in ways that serve them well. They will learn to perform under pressure, to meet deadlines, to navigate systems that require performance on demand. These are, for better or worse, useful skills in the world as it exists.
+Some of them will internalize this in ways that serve them well. They will learn to perform under pressure, to meet deadlines, to navigate systems that require performance on demand. These are useful skills in the world as it exists.
 
 Others will internalize it differently. They will learn that they are not good enough. They will learn that effort does not always translate to outcome. They will learn, before they have the cognitive tools to process it, that the world is not fair. And they will not always learn the right lessons from this knowledge.
 
@@ -167,7 +167,7 @@ What we can do, what I have tried to do with this analysis, is illuminate the tr
 
 And perhaps, also, to sit for a moment with the weight of it. The weight of a number. The weight carried by a thirteen-year-old in a testing room, by a parent at a kitchen table, by a teacher asked to sort children into futures.
 
-These are not simple problems. They will not be solved by better statistics, although better statistics can help. They are human problems, which is to say they are messy, contingent, and they resist optimization.
+These are not simple problems. They will not be solved by better statistics, although better statistics can help. They are human problems: messy, contingent, and resistant to optimization.
 
 The best we can do, I think, is to see them clearly. To name what is actually happening. And to ask, with whatever honesty we can muster, whether this is the system we would choose if we were choosing, rather than inheriting. 
 
