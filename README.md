@@ -44,7 +44,7 @@ There is a moment I witness every year, sometime in late October or early Novemb
 
 I have sat with families in the aftermath of these moments. I have watched parents try to translate the number into meaning, flipping between browser tabs, cross-referencing cutoff charts, asking me questions I sometimes cannot answer. 
 
-"Is this good? Is this enough? What does this mean for my child?"
+"Is this good? Is this good enough? What does this mean for my child?"
 
 What I have come to understand, after years of tutoring students through this process, is that the question they are really asking is not about the number at all. They are asking about fairness. They are asking whether the world their child is about to enter will recognize their effort, their potential, their worth. And they are asking me to tell them that it will.
 
