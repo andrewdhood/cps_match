@@ -34,7 +34,8 @@ Since we only observe students above a threshold, we're dealing with **truncated
 ---
 
 
-## 0. On the Weight of a Number
+## 0. On the Weight of a Number 
+*This essay accompanies a statistical analysis of CPS Selective Enrollment admissions data. The analysis, along with code and methodology, is available at [https://github.com/andrewdhood/cps_match](https://github.com/andrewdhood/cps_match). The numbers can tell us what is happening. What we should do about it is a question the numbers cannot answer.*
 
 ### On Fairness, Equity, and the Impossible Choices of Selective Enrollment
 
