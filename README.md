@@ -1,4 +1,4 @@
-# Reverse-Engineering CPS Selective Enrollment Admissions
+# Using Inferential Statistics to Estimate Chicago Public Schools Selective Enrollment Applicant Distributions and Building a Monte-Carlo Simulation Model
 
 ## Recovering Hidden Score Population Parameters from Public Truncated Data Using Inferential Statistics (Constrained Maximum-Likelihood Estimation) and Building a Monte-Carlo Simulation to Predict Admission Probabilities
 
@@ -882,7 +882,7 @@ Model parameters $\{\xi_{r,t}, \omega_{r,t}, \alpha_{r,t}\}$ were optimized usin
 If you use this analysis, please cite:
 
 ```
-Hood, A. (2025). Reverse-Engineering CPS Selective Enrollment Admissions.
+Hood, A. (2025). Using Inferential Statistics to Estimate Chicago Public Schools Selective Enrollment Applicant Distributions and Building a Monte-Carlo Simulation Model.
 https://github.com/homo-morphism/CPS_Match
 ```
 
