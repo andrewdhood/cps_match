@@ -36,7 +36,7 @@ Since we only observe students above a threshold, we're dealing with **truncated
 
 ## 0. On the Weight of a Number 
 
-### On Fairness, Equity, and the Impossible Choices of Selective Enrollment
+### Point-Estimation of Human Achievement
 
 ---
 
@@ -52,7 +52,7 @@ I cannot always tell them that.
 
 ---
 
-### What We Talk About When We Talk About Fairness
+### Fairness in Context
 
 The word "fair" sounds simple until you ask what it means. A child's word, really; a word invoked on playgrounds and in sibling disputes. "That's not fair." But the moment you press on it, the moment you ask fair according to whom, fair measured how, fair compared to what, the ground gives way.
 
@@ -72,7 +72,7 @@ Both of these are coherent definitions of fairness. Both have moral weight. And 
 
 ---
 
-### The Difference Between Fair and Equitable
+### Perspectives on Fairness and Equity
 
 There is a distinction that educators and policy-makers invoke, though it often clarifies less than it obscures. Fairness versus equity.
 
@@ -138,7 +138,7 @@ Others will internalize it differently. They will learn that they are not good e
 
 ---
 
-### What Would Better Look Like?
+### What Might Better Look Like?
 
 I do not have a clean answer to the problems I have described. I am not sure anyone does. But I can gesture toward what better might look like, even if the path there is unclear.
 
@@ -158,7 +158,7 @@ Can any of this ever be simple?
 
 No. I do not think it can.
 
-Fairness and equity pull in different directions. Individual merit and structural inequality cannot be reconciled by any formula. The interests of students, parents, teachers, and policymakers do not fully align, and no system can satisfy all of them at once.
+Fairness and equity pull in different directions. Individual merit and structural inequality cannot be totally reconciled by any mathematical formula. The interests of students, parents, teachers, and policymakers do not fully align, and no system can satisfy all of them at once (we might say that it appears to have no solutions).
 
 What we can do, what I have tried to do with this analysis, is illuminate the tradeoffs. To show what the data actually says, beneath the opacity. To give families the information they need to navigate a system that was not designed to be navigable.
 
