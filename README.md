@@ -752,16 +752,20 @@ $$\widehat{\text{SE}}(\hat{p}_s) = \sqrt{\frac{\hat{p}_s(1-\hat{p}_s)}{B}}$$
 2. **Proportional Scaling:** For the animation, we simulate $n \approx 2000$ students (vs. ~22,000 actual applicants). Capacities are scaled:
    $$C_s^{(\cdot)} \leftarrow \left\lfloor \frac{n}{22000} \cdot C_s^{(\cdot)} \right\rfloor$$
    This preserves seats-to-applicants ratios but may distort edge effects.
+   The simulation to calculate admission probabilities runs 100 full simulations of ~20,000 students for each of the eleven schools yielding:
+   - 1100 simulations total across 11 schools
+   - 2.2 million total students simulated for each school
+   - 22 million total students simulated in the entire simulation
 
-3. **Model Misspecification:** The skew-normal family may not capture:
+4. **Model Misspecification:** The skew-normal family may not capture:
    - Multimodality in true score distributions
    - Heavy tails or outlier behavior
    - Year-to-year variation (temporal non-stationarity)
    - Unobserved confounders correlated with scores
 
-4. **Deterministic Competitor Preferences:** Other students' preferences are computed via a utility function depending on school prestige, distance, and region penalties. Only the user's preferences are set exogenously.
+5. **Deterministic Competitor Preferences:** Other students' preferences are computed via a utility function depending on school prestige, distance, and region penalties. Only the user's preferences are set exogenously.
 
-5. **Truthful Revelation:** By strategy-proofness, we assume all students report truthfully—no strategic preference manipulation.
+6. **Truthful Revelation:** By strategy-proofness, we assume all students report truthfully—no strategic preference manipulation.
 
 ### 5.8 Interpretation
 
