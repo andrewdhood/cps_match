@@ -1,6 +1,6 @@
 # Reverse-Engineering CPS Selective Enrollment Admissions
 
-## Recovering Hidden Population Parameters from Truncated Distributions via Maximum Likelihood Estimation
+## Recovering Hidden Population Parameters from Truncated Distributions via Maximum Likelihood Estimation and Monte Carlo Simulationm
 
 **Author:** Andrew Hood
 
