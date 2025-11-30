@@ -750,7 +750,7 @@ $$\widehat{\text{SE}}(\hat{p}_s) = \sqrt{\frac{\hat{p}_s(1-\hat{p}_s)}{B}}$$
 
 1. **Independence Across Simulations:** Each simulation $b$ draws an independent applicant pool from the score distribution model. This assumes stationarity of the data-generating process.
 
-2. **Proportional Scaling:** We simulate $n \approx 2000$ students (vs. ~22,000 actual applicants). Capacities are scaled:
+2. **Proportional Scaling:** For the animation, we simulate $n \approx 2000$ students (vs. ~22,000 actual applicants). Capacities are scaled:
    $$C_s^{(\cdot)} \leftarrow \left\lfloor \frac{n}{22000} \cdot C_s^{(\cdot)} \right\rfloor$$
    This preserves seats-to-applicants ratios but may distort edge effects.
 
