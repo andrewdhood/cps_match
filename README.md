@@ -735,8 +735,8 @@ Model parameters $\{\xi_{r,t}, \omega_{r,t}, \alpha_{r,t}\}$ were optimized usin
 If you use this analysis, please cite:
 
 ```
-Hood, A. (2025). Reverse-Engineering CPS Selective Enrollment Admissions:
-An MLE Approach. https://github.com/homo-morphism/CPS_Match
+Hood, A. (2025). Reverse-Engineering CPS Selective Enrollment Admissions.
+https://github.com/homo-morphism/CPS_Match
 ```
 
 ---
