@@ -1,6 +1,6 @@
 # Reverse-Engineering CPS Selective Enrollment Admissions
 
-## Recovering Hidden Score Population Parameters from Public Truncated Data Using Inferential Statistics (Maximum-Likelihood Estimation) and Building a Monte-Carlo Simulation to Predict Admission Probabilities
+## Recovering Hidden Score Population Parameters from Public Truncated Data Using Inferential Statistics (Constrained Maximum-Likelihood Estimation) and Building a Monte-Carlo Simulation to Predict Admission Probabilities
 
 **Author:** Andrew Hood
 
