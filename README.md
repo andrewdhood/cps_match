@@ -1,6 +1,6 @@
 # Reverse-Engineering CPS Selective Enrollment Admissions
 
-## Recovering Hidden Population Parameters from Truncated Distributions via Maximum Likelihood Estimation and Monte Carlo Simulationm
+## Recovering Hidden Population Parameters from Truncated Distributions via Maximum Likelihood Estimation and Monte Carlo Simulation
 
 **Author:** Andrew Hood
 
@@ -202,6 +202,13 @@ $$(\hat{\mu}, \hat{\sigma}) = \underset{(\mu, \sigma) \in \Theta}{\arg\min} \; \
 
 This is a **constrained nonlinear least squares** problem. We solve it using the L-BFGS-B algorithm, which handles box constraints efficiently.
 
+<img width="1456" height="980" alt="download1" src="https://github.com/user-attachments/assets/999a8121-ada3-4a54-bdc5-1166aa5a3c5e" />
+
+<img width="1450" height="980" alt="download2" src="https://github.com/user-attachments/assets/0434ab0e-0b81-49ec-a267-08ae6f9766f0" />
+
+<img width="1467" height="980" alt="download3" src="https://github.com/user-attachments/assets/39931beb-cd33-4925-a711-b1921997571b" />
+
+
 ### Core Implementation
 
 ```python
@@ -306,6 +313,9 @@ The T4 $\hat{\sigma}$ values reveal **two fundamentally different competitive re
 - T4 $\bar{\sigma}$ = **81.0** — much wider distributions
 - Heterogeneous applicant pools spanning 200+ points
 - 30-50 point buffers are common
+
+<img width="1981" height="1530" alt="download4" src="https://github.com/user-attachments/assets/fa0cfb0d-8bc9-40b0-8e91-82f7190eca0f" />
+
 
 ---
 
@@ -422,6 +432,8 @@ Raw scores are clipped to enforce domain constraints:
 $$\tilde{X}_i = \text{clip}(X_i; 400, 900) \equiv \min(\max(X_i, 400), 900)$$
 
 Formally, $\tilde{X}_i = h \circ X_i$ where $h: \mathbb{R} \to [400, 900]$ is the clipping function. Since $h$ is Borel-measurable, $\tilde{X}_i$ remains a valid random variable.
+
+<img width="1380" height="980" alt="download6" src="https://github.com/user-attachments/assets/1b6c9f2a-b93f-4001-b269-35bba596ef3a" />
 
 ### 5.5 The Matching Mechanism
 
@@ -624,6 +636,8 @@ This is *not* a Bayesian posterior probability (which would incorporate paramete
 | Northside | 706.5 | 893 | **186.5 pts** |
 | Payton | 796 | 898 | **102 pts** |
 
+<img width="1380" height="780" alt="output1" src="https://github.com/user-attachments/assets/83caa7b8-ceca-47f5-a7ab-9e4ee0c1a6fe" />
+
 A Tier 1 student can gain admission to Lane Tech with a score 147 points below the Tier 4 threshold. This is the policy working as designed—but the magnitude is striking.
 
 ### Finding 2: Published Averages Overstate Competitiveness by 100-300 Points
@@ -636,6 +650,8 @@ A Tier 1 student can gain admission to Lane Tech with a score 147 points below t
 
 The truncated statistics create a systematic illusion of extreme competitiveness.
 
+<img width="1580" height="714" alt="output3" src="https://github.com/user-attachments/assets/1f05869b-cc11-43f5-a5d4-1acd6c4fbf57" />
+
 ### Finding 3: Two Distinct School Systems Within One Policy
 
 **Elite Schools:** T4 $\hat{\mu}$ = 830-888, $\hat{\sigma}$ = 3-82
@@ -644,6 +660,8 @@ The truncated statistics create a systematic illusion of extreme competitiveness
 
 The 200+ point gap in population means reflects fundamental bifurcation in Chicago's educational landscape.
 
+<img width="1380" height="780" alt="output4" src="https://github.com/user-attachments/assets/84b22301-50e2-460d-ae3d-7e07e9270dcd" />
+
 ### Finding 4: Regional Schools Show Inverted Tier Patterns
 
 At elite schools: T4 cutoff > T3 > T2 > T1 (expected)
@@ -651,6 +669,9 @@ At elite schools: T4 cutoff > T3 > T2 > T1 (expected)
 At some regional schools (e.g., South Shore): **T4 cutoff < T1 cutoff**
 
 This inversion occurs because high-scoring T1 students from the South Side *prefer elite schools*, while high-scoring T4 students are geographically constrained to regional options.
+
+<img width="1580" height="580" alt="download5" src="https://github.com/user-attachments/assets/5deea892-b4d5-4e59-9a22-e440e2c78deb" />
+
 
 ---
 
@@ -695,6 +716,9 @@ Model parameters $\{\xi_{r,t}, \omega_{r,t}, \alpha_{r,t}\}$ were optimized usin
 | Overall MAE | 22.79 pts |
 | Max Error | 84.4 pts |
 | Max School MAE | 30.0 pts |
+
+<img width="1575" height="1180" alt="download7" src="https://github.com/user-attachments/assets/cc396c43-e041-4f47-8505-d0ad69477eb9" />
+
 
 ### Limitations
 
