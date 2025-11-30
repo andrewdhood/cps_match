@@ -4,7 +4,7 @@
 
 **Author:** Andrew Hood
 
-**Date:** November 2025
+**Last Updated:** November 29, 2025
 
 **Data Source:** CPS Official 2024-2025 Cutoffs (released 3/14/2025)
 
@@ -338,17 +338,17 @@ We work on a probability space $(\Omega, \mathcal{F}, P)$ where:
 Before defining random variables, we establish the key sets in our model:
 
 **School Set:**
-$$\mathcal{S} = \{s_1, s_2, \ldots, s_{11}\}$$
+$$\mathcal{S} = \set{s_1, s_2, \ldots, s_{11}}$$
 
 where the schools are: Payton, Northside, Young, Jones, Lane, Lindblom, Westinghouse, King, Brooks, Hancock, South Shore.
 
 **Tier Set:**
-$$\mathcal{T} = \{1, 2, 3, 4\}$$
+$$\mathcal{T} = \set{1, 2, 3, 4}$$
 
 representing the four CPS socioeconomic tiers.
 
 **Region Set:**
-$$\mathcal{R} = \{\text{North}, \text{Loop}, \text{West}, \text{South}\}$$
+$$\mathcal{R} = \set{ \text{North}, \text{Loop}, \text{West}, \text{South}}$$
 
 representing geographic partitions of Chicago.
 
