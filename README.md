@@ -16,7 +16,7 @@ Chicago Public Schools (CPS) operates 11 Selective Enrollment High Schools (SEHS
 
 Since we only observe students above a threshold, we're dealing with **truncated distributions**—and the published statistics are systematically misleading. This project develops a Maximum Likelihood Estimation (MLE) framework to recover the hidden population parameters $(\mu, \sigma)$ from the published truncated statistics, then uses these recovered parameters to build a physics-based Monte Carlo simulation of the full admissions process.
 
-> **Interactive Simulation:** The full analysis includes a Monte Carlo admission probability simulator. To run the interactive components, open `sehs_analysis_notebook.ipynb` locally in Jupyter or upload to Google Colab along with `sehs_data.py` and `sehs_simulation_v13.py`.
+> **Interactive Simulation:** The full analysis includes a Monte Carlo admission probability simulator. To run the interactive components, open `sehs_analysis_notebook.ipynb` locally in Jupyter  along with `sehs_data.py` and `sehs_simulation_v13.py` or point Google Colab towards this github repo.
 
 ---
 
@@ -50,7 +50,7 @@ Seats are allocated in two phases:
 - **Phase 1 (30%):** Rank-based—highest scorers citywide, regardless of tier
 - **Phase 2 (70%):** Tier-based—17.5% of seats to each tier, filled by score within tier
 
-### The Statistical Illusion
+### The Problem with Published Statistics
 
 CPS publishes the average score of **admitted** students. But this is the mean of a *truncated* distribution:
 
@@ -58,11 +58,13 @@ $$\bar{X}_{\text{observed}} = \mathbb{E}[X \mid X \geq c] > \mu_{\text{true}}$$
 
 This creates a systematic upward bias. A parent seeing "average: 876 at Payton" might conclude their 850-scoring child is below average. In reality, 850 likely places them well **above** the true applicant pool mean.
 
-**The core question:** Given only the truncated statistics, can we recover the hidden population parameters?
+**This then motivates the core question:** Given only the truncated statistics, can we recover the hidden population parameters?
 
 ---
 
 ## 2. Mathematical Framework
+
+We begin by setting up a formal mathematical framework for our constrained maximum-likelihood estimation inferential statistics procedure to recover the hidden parameters for each school, that is, the mean and standard deviation of their true applicant pools, not just the mean and standard deviation of admitted students. We first formalize the sample spaces, sigma-algebras, probability measures, random variables, (trunctuated) distributions, parameters, estimators, and constraints.
 
 ### Probability Space
 
@@ -174,7 +176,7 @@ This exceeds 1.75 standard deviations—the observed mean dramatically overstate
 
 ### Parameter Space
 
-Define the **feasible parameter space**:
+We next define the **feasible parameter space**:
 
 $$\Theta = \{(\mu, \sigma) \in \mathbb{R}^2 : \mu \in [100, 890], \, \sigma \in [5, 200]\}$$
 
@@ -322,7 +324,7 @@ The T4 $\hat{\sigma}$ values reveal **two fundamentally different competitive re
 
 ## 5. Monte Carlo Simulation: Statistical Formulation
 
-The MLE analysis recovers population parameters but doesn't model **behavioral dynamics**—how students choose which schools to rank, and how these choices interact with the matching algorithm. This section develops the simulation framework.
+The MLE analysis recovers population parameters but doesn't model **behavioral dynamics**: how students choose which schools to rank, and how these choices interact with the matching algorithm. This section develops the mathematical framework for the Monte-Carlo simulation. We again construct the sample space formally by defining the fundamental sets involved in the simulation, our random variables, and our score distribution model (with parameter discussion). We sketch a proof that our sample space is convex and Borel-measureable. We define per-school capacity constraints, conditional distributions, the matching algorithm, and score-ordering permutations (to enforce strict order statistics. We highlight a theorem by (Satterthwaite, 1975) about the impossibility of strategy in this process. Finally we prove that for our Monte-Carlo simulation, our estimator (the sample mean) is unbiased, consistent, and asymptotically normal. We also compute the variance and standard error.
 
 ### 5.1 Probability Space and Measure-Theoretic Foundation
 
