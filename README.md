@@ -1,6 +1,6 @@
-# Using Inferential Statistics to Estimate Chicago Public Schools Selective Enrollment Applicant Distribution Parameters and Building a Monte-Carlo Simulation Model
+# The Weight of a Number: Recovering Population Distribution Parameters and Building a Monte Carlo Simulation from Truncated Admissions Data Using Inferential Statistics
 
-## Recovering Hidden Score Population Parameters from Chicago Public Schools Public Truncated Data Using Constrained Maximum-Likelihood Estimation and Building a Monte-Carlo Simulation to Predict Admission Probabilities
+## Recovering Hidden Score Population Parameters from Chicago Public Schools Public Dataset Using Constrained Maximum-Likelihood Estimation and Building a Monte-Carlo Simulation to Predict Admission Probabilities
 
 **Author:** Andrew Hood
 
@@ -917,7 +917,7 @@ Model parameters $\{\xi_{r,t}, \omega_{r,t}, \alpha_{r,t}\}$ were optimized usin
 If you use this analysis, please cite:
 
 ```
-Hood, A. (2025). Using Inferential Statistics to Estimate Chicago Public Schools Selective Enrollment Applicant Distribution Parameters and Building a Monte-Carlo Simulation Model.
+Hood, A. (2025). The Weight of a Number: Recovering Population Distribution Parameters and Building a Monte Carlo Simulation from Truncated Admissions Data Using Inferential Statistics
 https://github.com/homo-morphism/CPS_Match
 ```
 
