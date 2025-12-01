@@ -168,9 +168,9 @@ These are not simple problems. They will not be solved by better statistics, alt
 
 The best we can do, I think, is to see them clearly. To name what is actually happening. And to ask, with whatever honesty we can muster, whether this is the system we would choose if we were choosing, rather than inheriting. 
 
-I am not sure it is. It is a system with many equations, and in many variables, and when we solve our complicated system, the solution often feels unfair. Still, I am also not sure what we might choose instead.
+I am not sure that it is. It is a system with many equations, and in many variables, and when we solve our complicated system, the solution often feels unfair. Still, I am also not sure what we might choose instead.
 
-I'm not sure a student's potential could ever be truly captured within a confidence interval. The most important things about a person are often the most difficult to quantify. And perhaps that uncertainty is the most honest place to end.
+I doubt a student's potential could ever be truly captured within a confidence interval. The most important things about a person are often the most difficult to quantify. And perhaps that uncertainty is the most honest place to end.
 
 ---
 
