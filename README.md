@@ -21,7 +21,7 @@ Since we only observe students above a threshold, we're dealing with **truncated
 ---
 
 ## Table of Contents
-0. [On the Weight of a Number](#0-on-the-weight-of-a-number)
+0. [Foreword: On the Weight of a Number](#0-on-the-weight-of-a-number)
 1. [The Truncation Problem](#1-the-truncation-problem)
 2. [Mathematical Framework](#2-mathematical-framework)
 3. [MLE Implementation](#3-mle-implementation)
@@ -34,7 +34,7 @@ Since we only observe students above a threshold, we're dealing with **truncated
 ---
 
 
-## 0. On the Weight of a Number 
+## 0. Foreword: On the Weight of a Number 
 
 ### Point-Estimation of Human Achievement
 
