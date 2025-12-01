@@ -82,9 +82,9 @@ Equity means something different. It means adjusting inputs to achieve a more eq
 
 This is a defensible position. The data on outcomes is genuinely encouraging. Students from lower-income backgrounds who attend these schools graduate at higher rates, attend college at higher rates, earn more over their lifetimes. The intervention appears to work, in the sense that it creates pathways that would not otherwise exist.
 
-But here is what the policy cannot do. It cannot make the Tier 4 family feel that the outcome was fair. Because by their definition of fairness, consistency, it was not.
+But here is what the policy cannot do: It cannot make the Tier 4 family feel that the outcome was fair. Because by their definition of fairness, consistency, it was not.
 
-And here is what else the policy cannot do. It cannot explain itself. The system is so opaque, so poorly communicated, that many Tier 1 families do not even know the advantage exists. They see published averages that suggest their child has no chance. They do not apply to reach schools. The policy that was designed to help them fails in its implementation, because no one told them how it works.
+And here is what else the policy cannot do: It cannot explain itself. The system is so opaque, so poorly communicated, that many Tier 1 families do not even know the advantage exists. They see published averages that suggest their child has no chance. They do not apply to reach schools. The policy that was designed to help them fails in its implementation, because no one told them how it works.
 
 So we arrive at a system that is somehow equitable in design but unfair in perception; helpful to statisticians in theory but opaque to students in practice. A system that manages to leave almost everyone feeling wronged.
 
