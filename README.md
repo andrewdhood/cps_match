@@ -27,7 +27,7 @@ Since we only observe students above a threshold, we're dealing with **truncated
 3. [MLE Implementation](#3-mle-implementation)
 4. [Key Results](#4-key-results)
 5. [Monte Carlo Simulation: Statistical Formulation](#5-monte-carlo-simulation-statistical-formulation)
-6. [Key Findings](#6-key-findings)
+6. [Findings and Conclusions](#6-findings-and-conclusions)
 7. [Repository Structure](#7-repository-structure)
 8. [Technical Details and Model Validation](#8-technical-details)
 
@@ -777,7 +777,7 @@ This is *not* a Bayesian posterior probability (which would incorporate paramete
 
 ---
 
-## 6. Key Findings
+## 6. Findings and Conclusions
 
 ### Finding 1: The Tier System Creates 40-186 Point Advantages
 
