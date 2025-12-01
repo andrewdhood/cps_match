@@ -920,7 +920,7 @@ If you use this analysis, please cite:
 
 ```
 Hood, A. (2025). The Weight of a Number: Recovering Population Distribution Parameters and Building a Monte Carlo Simulation from Truncated Admissions Data Using Inferential Statistics
-https://github.com/homo-morphism/CPS_Match
+https://github.com/andrewdhood/cps_match
 ```
 
 ---
