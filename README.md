@@ -136,7 +136,7 @@ We have decided, as a city, that this is acceptable. That the benefits of select
 
 Some of them will internalize this in ways that serve them well. They will learn to perform under pressure, to meet deadlines, to navigate systems that require performance on demand. These are useful skills in the world as it exists.
 
-Others will internalize it differently. They will learn that they are not good enough. They will learn that effort does not always translate to outcome. They will learn, before they have the cognitive tools to process it, that the world is not fair. And they will not always learn the right lessons from this knowledge.
+Others will internalize it differently. They will learn that they are not good enough. They will learn that effort does not always translate to outcome. They will learn, before they have the emotional or cognitive tools to process it, that the world is not fair.
 
 ---
 
