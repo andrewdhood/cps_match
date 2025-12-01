@@ -94,7 +94,7 @@ So we arrive at a system that is somehow equitable in design but unfair in perce
 
 Teachers hate this test. I say this not as an indictment but as an observation. The educators I have spoken with, almost without exception, resent what the HSAT represents.
 
-The reasons are pedagogical. The test is not aligned with the curriculum. Preparing students for it means diverting instructional time from the actual learning objectives of eighth grade. It creates a shadow curriculum, where some portion of every week becomes about test-taking strategies rather than genuine understanding.
+There are reasons that are pedagogical. The test is not aligned with the curriculum. Preparing students for it means diverting instructional time from the actual learning objectives of eighth grade. It creates a shadow curriculum, where some portion of every week becomes about test-taking strategies rather than genuine understanding.
 
 But the reasons run deeper than that. Teachers enter the profession, most of them, because they believe in the transformative power of learning. They believe that education is about growth, about curiosity, about helping young people become more fully themselves. And then they are asked to participate in a system that reduces all of that potential in a young person to a number. A number that will, for some students, open doors. And for others, firmly close them.
 
