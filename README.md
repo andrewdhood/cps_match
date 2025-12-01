@@ -100,9 +100,9 @@ But the reasons run deeper than that. Teachers enter the profession, most of the
 
 There is something corrosive about teaching toward a high-stakes exam. It narrows the radius of what counts as valuable. For many students, especially in Montessori schools where testing is de-emphasized, this might be the first exam, let alone timed exam, that they have ever experienced. And this exam tells students, implicitly, that the point of learning is to be measured, sorted, ranked. That the most important goals are not about understanding, but instead performance.
 
-And yet. What is the alternative? Without some mechanism for selection, how do you allocate scarce seats? Do you lottery them, introducing randomness that is truly arbitrary? Do you assign them by neighborhood, replicating the very segregation that selective enrollment was designed to disrupt? Do you eliminate selective enrollment entirely, dismantling programs that have genuinely helped students from underserved communities?
+And yet. What is the alternative? Without some mechanism for selection, how do we allocate scarce seats? Do we lottery them, introducing randomness that is truly arbitrary? Do we assign them by neighborhood, replicating the very segregation that selective enrollment was designed to disrupt? Do we eliminate selective enrollment entirely, dismantling programs that have genuinely helped students from underserved communities?
 
-There are no clean answers here. Every system of selection is a system of exclusion. There are only so many free parameters one can control. Every definition of merit is a choice about what to value. The test may be a blunt instrument, but the absence of any instrument is not obviously better.
+There are no clean answers here. Every system of selection define a system of exclusion. There are only so many free parameters one can control. Every definition of merit is a choice about what to value. The test may be a blunt instrument, but the absence of any instrument is not obviously better.
 
 ---
 
