@@ -465,6 +465,11 @@ The T4 $\hat{\sigma}$ values reveal **two fundamentally different competitive re
 
 <img width="1981" height="1530" alt="download4" src="https://github.com/user-attachments/assets/fa0cfb0d-8bc9-40b0-8e91-82f7190eca0f" />
 
+### Optimization Bounds Hit for Some Tier 1 Schools
+- Walter Payton, Brooks, and King all hit the optimization bounds for $\hat{\sigma}$, the standard deviation
+- This suggests that systemically, Tier 1 distributions may not be normally distributed
+- Alternative distributions, such as a beta distribution might better represent the underlying population distribution
+- Non-normality could also indicate the presence of a bimodal distribution, where an unknown effect results in the observation of two distinct distribution peaks 
 
 ---
 
