@@ -909,7 +909,7 @@ Model parameters $\{\xi_{r,t}, \omega_{r,t}, \alpha_{r,t}\}$ were optimized usin
 ### Limitations
 
 - MLE assumes normal distributions; boundary-hitting suggests non-normality at some schools
-- Applicant counts are estimated, not observed
+- Applicant counts are estimated, not observed. One student may rank up to 6 schoos, although many rank fewer.
 - Geographic preference model may not capture sibling attendance, program specialties, etc.
 
 ---
