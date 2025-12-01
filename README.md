@@ -110,7 +110,7 @@ There are no clean answers here. Every system of selection is a system of exclus
 
 I think often about what it feels like to be a parent in this system.
 
-You want, more than anything, for your child to be seen. You want the world to recognize what you recognize. The curiosity, the effort, the spark that makes your child who they are. And instead, the world offers you a rubric. Four hundred fifty points for grades in four subjects. Four hundred fifty points for a test taken on a single morning in October. The sum of these numbers will determine, in large part, where your child spends the next four years.
+You want, more than anything, for your child to be seen. You want the world to recognize what you recognize. The curiosity, the effort, the spark that makes your child who they are. And instead, the world offers you a rubric. Four-hundred and fifty points for grades in four subjects. Four-hundred and fifty points for a test taken on a single morning in October. The sum of these numbers will determine, in large part, where your child spends the next four years.
 
 You do not experience this as a policy question. You experience it as a parent, lying awake at 2am, wondering if you should have started test prep earlier. Wondering if the B+ in science will matter. Wondering if you are putting too much pressure on your child, or not enough.
 
