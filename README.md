@@ -42,13 +42,14 @@ Three critical findings are revealed by the analysis. First, published averages 
 
 ---
 
-There is a moment I witness every year, sometime in late October or early November, when a child learns their score. The number arrives by email, stark and final. 847. Or 791. Or 863. And in that instant, a thirteen-year-old must confront something that most adults spend their lives avoiding: the sensation of being weighed, measured, and reduced to a single data point.
+There is a moment I witness every year in late October, when a child learns their number. 847. Or 791. Or 863. And in that instant, a thirteen-year-old is forced to confront something that most adults devote most of their lives avoiding: the sensation of being weighed, measured, and reduced to a single data point.
 
-I have sat with families in the aftermath of these moments. I have watched parents try to translate the number into meaning, flipping between browser tabs, cross-referencing cutoff charts, asking me questions I sometimes cannot answer. 
-
-"Is this good? Is this good enough? What does this mean for my child?"
-
-What I have come to understand, after years of tutoring students through this process, is that the question they are really asking is not about the number at all. They are asking about fairness. They are asking: "Will the world my child is about to enter into recognize their effort, their potential, their worth?" And they are asking me to tell them that it will.
+Sitting with families in the aftermath of this moment, I have watched both parents and child try to translate the number into meaning; flipping between browser tabs, cross-referencing cutoff charts, and posing questions I sometimes cannot answer. 
+"Is this good?"
+"Is this good, enough?"
+"What does this mean for my child?"
+What I finally learned, after years of tutoring students through this process, is that the question they are really asking is not about the number. They are asking about fairness. They are asking: "Is the world that my child is about to enter into, going to recognize their effort - their potential - their worth?" 
+And they are asking me to tell them that it will.
 
 I cannot always tell them that.
 
