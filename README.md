@@ -75,7 +75,7 @@ Both of these are coherent definitions of fairness. And both of them have moral 
 
 ---
 
-###Fairness and Equity
+### Fairness and Equity
 
 There is a distinction that educators and policy-makers draw, though it often makes the picture more obsure rather than clear. Fairness versus equity.
 
